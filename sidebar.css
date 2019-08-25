@@ -1,0 +1,62 @@
+body {
+    background: #eee;
+}
+a {
+    text-decoration: none;
+}
+#wrapper {
+    max-width:1024px;
+    margin: 50px;
+    display:flex;
+}
+aside {
+    width: 300px;
+}
+
+#manage {
+    margin:0;
+    max-width: 200px;
+    text-align:center;
+    padding: 0;
+    cursor:pointer;
+}
+.item {
+    border-bottom:1px solid #000;
+    position: relative;
+}
+.item>a {
+    display:block;
+    color:#000;
+    padding: 20px;
+}
+.item:hover {
+    background: #999;
+
+}
+.item:hover .submenu {
+    opacity:1;
+}
+.item:hover .submenu-item {
+    overflow: visible;
+    height: 50px;
+    line-height: 50px;
+}
+.submenu {
+    position: relative;
+    width: 100%;
+    z-index:2;
+    overflow: hidden;
+    opacity:0;
+    font-size:14px;
+    transition: opacity .5s ease;
+}
+.submenu-item {
+    background: #333;
+    display: block;
+    height: 0px;
+    overflow: hidden;
+    transition: height .5s ease;
+    color:#eee;
+    width:100%;
+}
+
