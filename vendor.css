@@ -1,0 +1,11 @@
+form {
+    display:flex;
+    flex-direction: column;
+}
+label {
+    width: 300px;
+    
+}
+input {
+    display:inline-block;
+}

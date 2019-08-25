@@ -10,13 +10,13 @@ if (isset($_COOKIE['logined'])) {
     $password = $_POST['password'];    
     // echo "$account $password";
     
-    $sql = "SELECT count(1) AS rownum FROM SKI_ADMIN WHERE account = '$account' AND password = '$password'";
+    $sql = "SELECT bid FROM SKI_ADMIN WHERE account = '$account' AND password = '$password'";
     $result = mysqli_query($db,$sql);
     // 參數(資料庫連線對象, sql指令)
-    $rowNum = mysqli_fetch_assoc($result)["rownum"];
+    $bid = mysqli_fetch_assoc($result)["bid"];
     // 從SKI_admin的table查詢符合條件(帳號and密碼)的筆數
-    if ($rowNum == 1) {
-        setcookie('logined', 'true');
+    if ($bid != null) {
+        setcookie('bid', $bid);
     } else {
         // echo "登入失敗";
     }
@@ -109,7 +109,7 @@ if (isset($_COOKIE['logined'])) {
             <!-- 傳表單給自己所以不用action -->
                 <label for="" class="b-block">帳號<input class="b-block" type="text" name="account" placeholder=" 請輸入帳號" ></label>
                 <label for="" class="b-block">密碼<input class="b-block" type="password" name="password" placeholder=" 請輸入密碼"></label>
-                <input class="submit" type="text" value="登入">
+                <input class="submit" type="submit" value="登入">
             </form>
         </div>
     <footer></footer>
