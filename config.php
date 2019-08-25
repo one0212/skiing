@@ -1,13 +1,12 @@
 <?php
 // 建立資料庫連線
 $userDir = getenv('HOME');
-$config = parse_ini_file("$userDir/config.ini");
-$db = New mysqli($config['servername'],$config['username'],$config['password'],$config['dbname']);
+$config = parse_ini_file("$userDir/ski_db_conf.ini");
+$db = New PDO($config['dsn'],$config['username'],$config['password']);
 
 // 測試連線
 if ($db->connect_error) {
     die("連接失敗: " . $db->connect_error);
 } 
-echo "連接成功";
 unset($userDir, $config);
 ?>
