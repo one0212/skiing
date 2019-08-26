@@ -13,7 +13,7 @@
 <body>
     <div id="wrapper" style="max-width:1024px;display:flex;">
     <?php
-    include("__sidebar.php");
+    include("include/__sidebar.php");
     ?>
         <div class="form">
             <form action="">
