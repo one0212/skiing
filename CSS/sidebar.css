@@ -1,12 +1,11 @@
 body {
-    background: #eee;
+    background: rgba(252, 225, 225, 0.612);
 }
 a {
     text-decoration: none;
 }
 #wrapper {
     max-width:1024px;
-    margin: 50px;
     display:flex;
 }
 aside {

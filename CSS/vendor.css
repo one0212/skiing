@@ -1,11 +1,36 @@
 form {
     display:flex;
     flex-direction: column;
+    margin:30px 50px 0;
 }
 label {
-    width: 300px;
-    
+    margin:10px 0;
+    width:200px;
+    /* display:inline-block; */
 }
 input {
-    display:inline-block;
+    /* text-align:center; */
+    width:300px;
+    height:25px;
+    outline:none;
+    background:none;
+    /* margin:5px 0; */
+    /* border-width:0; */
+    border:1px solid rgb(111, 108, 108);
+    border-radius:3px;
+}
+.checkbox {
+    width:20px;
+    margin-left: 60px;
+    vertical-align: middle;
+}
+.submit {
+    width: 80px;
+    padding:5px;
+    align-self: flex-end;
+    margin-bottom: 10px;
+    border-radius:3px;
+    outline:none;
+    background: transparent;
+    /* border: 1px solid rgb(111, 108, 108); */
 }
