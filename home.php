@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php
+session_start(); 
+if (empty($_SESSION['bid'])) {
+    header('Location: login.php');
+    exit();
+}
+?>
 
 <!DOCTYPE html>
 <html lang="zh-hant">

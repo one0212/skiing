@@ -2,7 +2,7 @@
 // 建立資料庫連線
 if (empty($db)) {
 	$userDir = getenv('HOME');
-	$config = parse_ini_file("$userDir/ski_db_conf.ini");
+	$config = parse_ini_file("$userDir" . DIRECTORY_SEPARATOR . "ski_db_conf.ini");
 	$db = New PDO($config['dsn'],$config['username'],$config['password']);
 }
 
