@@ -1,7 +1,7 @@
-<?php
-function console_log($data)
-{
-	echo '<script>';
-	echo 'console.log(' . json_encode($data) . ')';
-	echo '</script>';
-}
+<?php 
+	function redirectTo($php_file) {
+		error_log("跳轉到頁面 - $php_file");
+		header("Location: $php_file");
+		exit();
+	}
+ ?>
