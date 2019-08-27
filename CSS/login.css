@@ -39,8 +39,7 @@ input {
     border-bottom:1px solid #000;
 }
 .submit {
-    /* margin-left:200px;
-    width:100px; */
+    margin-top:80px;
     border:1px solid #000;
     border-radius:5px;
     text-align:center;
