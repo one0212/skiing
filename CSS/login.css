@@ -7,28 +7,29 @@ body {
 }
 header {
     height: 80px;
+    width: 100%;
     background:#000;
 }
-.container {
+/* .container {
     width:960px;
     margin:0 auto;
-}
-form {
+} */
+.login-form {
     background:#ccc;
     width:300px;
     height:300px;
     margin:50px auto;
     padding:30px;
-    
+
 }
 .b-block {
     display:block;
 }
-label {
+.login-label {
     margin:10px 0;
     padding:20px 0;
 }
-input {
+.login-input {
     /* text-align:center; */
     width:300px;
     height:30px;
@@ -38,11 +39,14 @@ input {
     border-width:0;
     border-bottom:1px solid #000;
 }
-.submit {
-    margin-top:80px;
+.login-button {
+    margin:80px auto;
     border:1px solid #000;
     border-radius:5px;
     text-align:center;
+    width: 300px;
+    height: 30px;
+    outline:none;
 }
 footer {
     height: 50px;
