@@ -1,7 +1,7 @@
 <?php
 require("config.php");
 require("ski_utils.php");
-// test
+
 session_start();
 if (isset($_SESSION['bid'])) {
     error_log("已登入");
