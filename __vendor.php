@@ -67,7 +67,7 @@ $vendor_detail_stmt = $db->prepare($vendor_detail_sql)->execute([
     include("include/__sidebar.php");
     ?>
         <div class="form">
-            <form action="">
+            <form action="" method="post">
                 <label for="">公司名稱</label><input type="text" name="name">
                 <label for="">統一編號／公司行號</label><input type="text" name="company">
                 <label for="">帳戶資訊</label><input type="text" name="bank_account">
