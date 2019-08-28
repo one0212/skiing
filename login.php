@@ -1,11 +1,11 @@
 <?php
 require("config.php");
 require("ski_utils.php");
-
+// test
 session_start();
 if (isset($_SESSION['bid'])) {
     error_log("已登入");
-    redirectTo("home.php");
+    redirectTo("home_page.php");
 } elseif (isset($_POST['account']) && isset($_POST['password'])){
 
     $account = $_POST['account'];
@@ -18,7 +18,7 @@ if (isset($_SESSION['bid'])) {
     } else {
         $_SESSION['bid'] = $result['bid'];
         $_SESSION['account'] = $result['account'];
-        redirectTo("home.php");
+        redirectTo("home_page.php");
     }
 }
 
