@@ -19,12 +19,16 @@
         </ul>
     </aside>
 </div> -->
+   
+   
+
+<link rel="stylesheet" href="css/sidebar.css">
 
     <aside>
         <ul id="manage">
             <li class="item"><a href="#">廠商管理</a></li>
             <li class="item"><a href="#">會員管理</a></li>
-            <li class="item"><a href="#">雪場資訊管理</a></li>
+            <li class="item"><a href="ski_areas.php">雪場資訊管理</a></li>
             <li class="item"><a href="#">教練管理</a></li>
             <li class="item">
                 <a href="#">飯店資訊管理</a>
@@ -39,10 +43,14 @@
             <li class="item"><a href="#">品牌廠商管理</a></li>
             <li class="item"><a href="#">景點管理</a></li>
             <li class="item"><a href="#">訂單管理</a></li>
-            <li class="item"><a href="#">基本資料</a></li>
+            <li class="item"><a href="__vendor.php">基本資料</a></li>
         </ul>
     </aside>
+
+
+
     
+
         <!-- <div class="form">
             <form action="">
                 <label for="">公司名稱</label><input type="text">
