@@ -1,25 +1,8 @@
-<?php
-session_start(); 
-if (empty($_SESSION['bid'])) {
-    header('Location: login.php');
-    exit();
-}
-?>
+<?php require_once("filter/authenticator.php"); ?>
 
-<!DOCTYPE html>
-<html lang="zh-hant">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/sidebar.css">
-    <title>SKI 管理後台 - 首頁</title>
-</head>
+<?php include("include/__head.php"); ?>
+<?php include("include/__navbar.php"); ?>
 <body>
-<?php include("include/__sidebar.php") ?>
-<?php 
-    echo "歡迎! " . $_SESSION['account']
-?>
-<a href="logout.php">登出</a>
+<div id="wrapper" style="max-width:1024px;display:flex;">
+<?php include("include/__sidebar.php"); ?>
 </body>
