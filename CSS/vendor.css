@@ -1,14 +1,20 @@
-form {
+.vendor-form {
     display:flex;
     flex-direction: column;
     margin:30px 50px 0;
 }
-label {
+.vendor-form-group {
+    display:flex;
+    width: 600px;
+    align-items: center;
+    margin:0 20px 20px;
+}
+.vendor-form-group>label {
     margin:10px 0;
     width:200px;
     /* display:inline-block; */
 }
-input {
+.vendor-form-group>input {
     /* text-align:center; */
     width:300px;
     height:25px;
@@ -19,15 +25,13 @@ input {
     border:1px solid rgb(111, 108, 108);
     border-radius:3px;
 }
-.checkbox {
-    width:20px;
+.vendor-checkbox {
     margin-left: 60px;
-    vertical-align: middle;
+    align-items:center;
 }
-.submit {
+.vendor-submit {
     width: 80px;
     padding:5px;
-    align-self: flex-end;
     margin-bottom: 10px;
     border-radius:3px;
     outline:none;

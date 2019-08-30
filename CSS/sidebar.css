@@ -1,12 +1,12 @@
 body {
-    background: rgba(252, 225, 225, 0.612);
+    background: rgba(187, 187, 187, 0.612);
 }
 a {
     text-decoration: none;
 }
-#wrapper {
-    max-width:1024px;
-    display:flex;
+a:hover {
+    text-decoration: none;
+
 }
 aside {
     width: 300px;
@@ -19,28 +19,28 @@ aside {
     padding: 0;
     cursor:pointer;
 }
-.item {
+.sidebar-item {
     border-bottom:1px solid #000;
     position: relative;
 }
-.item>a {
+.sidebar-item>a {
     display:block;
     color:#000;
     padding: 20px;
 }
-.item:hover {
+.sidebar-item:hover {
     background: #999;
 
 }
-.item:hover .submenu {
+.sidebar-item:hover .sidebar-submenu {
     opacity:1;
 }
-.item:hover .submenu-item {
+.sidebar-item:hover .submenu-item {
     overflow: visible;
     height: 50px;
     line-height: 50px;
 }
-.submenu {
+.sidebar-submenu {
     position: relative;
     width: 100%;
     z-index:2;

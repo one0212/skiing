@@ -35,7 +35,7 @@ if (isset($_SESSION['bid'])) {
 <body>
     <header></header>
     <!-- 如果帳密不符合則繼續停留在表單上 -->
-        <form class="login-form" action="login.php" method="post"> 
+        <form class="login-form" method="post"> 
         <!-- 傳表單給自己所以不用action -->
             <label for="account" class="b-block login-label">帳號<input class="b-block login-input" type="text" name="account" placeholder=" 請輸入帳號"/>
             <label for="password" class="b-block login-label">密碼<input class="b-block login-input" type="password" name="password" placeholder=" 請輸入密碼"/>
