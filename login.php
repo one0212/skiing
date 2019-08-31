@@ -41,6 +41,6 @@ if (isset($_SESSION['bid'])) {
             <label for="password" class="b-block login-label">密碼<input class="b-block login-input" type="password" name="password" placeholder=" 請輸入密碼"/>
             <button class="login-button" type="submit">登入</button>
         </form>
-    <footer></footer>
+    <!-- <footer></footer> -->
 </body>
 </html>

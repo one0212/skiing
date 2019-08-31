@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <script src="bootstrap/lib/jquery-3.4.1.js"></script>
     <script src="bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="css/all.css">
     <link rel="stylesheet" href="css/reset.css">
     <title>Document</title>
 </head>

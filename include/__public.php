@@ -12,7 +12,7 @@
 <?php include("include/__navbar.php"); ?>
 <!-- 導覽列 bootstrap的code -->
 
-<div id="wrapper" style="max-width:1024px;display:flex;">
+<div style="display:flex;">
 <?php include("include/__sidebar.php"); ?>
 <!-- 側邊欄 -->
 
