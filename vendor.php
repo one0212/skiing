@@ -158,6 +158,7 @@ if(empty($row1) and empty($row2)) {
         let contactPerson = document.querySelector('input[name="contact_person"]');
         let finished = document.querySelector('.edit-finished');
         let inputs = document.querySelectorAll('input');
+
         let edit = document.querySelector('.edit');
 
         btn.onclick = () => {
@@ -236,6 +237,21 @@ if(empty($row1) and empty($row2)) {
 
             // }
            return isPass
+
+        btn.onclick = () => {
+            let principalValue = principal.value;
+            contactPerson.value = principalValue;
+            
+        }
+        finished.onclick = () => {
+            for(let i=0; i<inputs.length; i++){
+                inputs[i].style.border = "none" ;
+                // inputs[i].style.border-bottom = 1 + "px"+ ''+ "solid" + '' +  "#000";
+                finished.style.display = "none";
+                btn.style.display = "none";
+
+            }
+            return false
             //inputs.style.border = "none";
         }
 

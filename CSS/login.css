@@ -4,11 +4,13 @@ html {
 }
 body {
     min-height:100vh;
+    margin: 0;
 }
 header {
     height: 80px;
     width: 100%;
     background:#000;
+    margin: 0;
 }
 /* .container {
     width:960px;

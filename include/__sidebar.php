@@ -23,7 +23,6 @@
    
 
 <link rel="stylesheet" href="css/sidebar.css">
-
     <aside>
         <ul id="manage">
             <li class="sidebar-item"><a href="#">廠商管理</a></li>
@@ -40,7 +39,6 @@
             </li>
             <li class="sidebar-item"><a href="#">雪具租借管理</a></li>
             <!-- <li class="sidebar-item"><a href="#">新增商品</a></li> -->
-            <li class="sidebar-item"><a href="#">訂單管理</a></li> 
             <li class="sidebar-item"><a href="#">品牌廠商管理</a></li>
             <li class="sidebar-item"><a href="#">景點管理</a></li>
             <li class="sidebar-item"><a href="#">訂單管理</a></li>
