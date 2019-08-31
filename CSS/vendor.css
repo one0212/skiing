@@ -1,11 +1,11 @@
 .vendor-form {
     display:flex;
     flex-direction: column;
-    margin:30px 50px 0;
+    margin:0 50px;
 }
 .vendor-form-group {
     display:flex;
-    width: 600px;
+    /* width: 600px; */
     align-items: center;
     margin:0 20px 20px;
 }
@@ -29,7 +29,7 @@
     margin-left: 60px;
     align-items:center;
 }
-.vendor-submit {
+.edit-button {
     width: 80px;
     padding:5px;
     margin-bottom: 10px;
