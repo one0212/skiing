@@ -117,8 +117,8 @@ if(empty($row1) and empty($row2)) {
                     <input type="text" name="web_site" value="<?= $row2['web_site'] ?>">
                 </div>
                 <div class="vendor-form-group">
-                    <label for="">聯絡人<input class="vendor-checkbox" type="checkbox" onclick="">同負責人</label>
-                    <input type="text" name="contact_person" value="<?= $row2['contact_person'] ?>">
+                    <label for="">聯絡人<button class="vendor-button" >同負責人</button></label>
+                    <input type="text" class="contact_person" name="contact_person" value="<?= $row2['contact_person'] ?>">
                 </div>
                 <div class="vendor-form-group">
                     <label for="">聯絡人電話</label>
@@ -133,11 +133,36 @@ if(empty($row1) and empty($row2)) {
                     <input type="text" name="remark" value="<?= $row2['remark'] ?>">
                 </div>
                 <div class="vendor-form-group">
-                    <button class="vendor-submit">編輯完成</button>
+                    <button class="edit-finished" onclick="return false">編輯完成</button>
                 </div>
             </form>
         </div>
         <!-- <input  type="button" value=""> -->
     </div>
+    <script>
+        let btn = document.querySelector('.vendor-button');
+        let principal = document.querySelector('input[name="principal"]');
+        let contactPerson = document.querySelector('input[name="contact_person"]');
+        let finished = document.querySelector('.edit-finished');
+        let inputs = document.querySelectorAll('input');
+
+        btn.onclick = () => {
+            let principalValue = principal.value;
+            contactPerson.value = principalValue;
+            
+        }
+        finished.onclick = () => {
+            for(let i=0; i<inputs.length; i++){
+                inputs[i].style.border = "none" ;
+                // inputs[i].style.border-bottom = 1 + "px"+ ''+ "solid" + '' +  "#000";
+                finished.style.display = "none";
+                btn.style.display = "none";
+
+            }
+            return false
+            //inputs.style.border = "none";
+        }
+
+    </script>
 <?php include("include/__footer.php");?>
 
