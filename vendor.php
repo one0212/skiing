@@ -154,6 +154,7 @@ if (isset($_SESSION['bid'])){
         edit.onclick = () => {
             inputs.forEach(function(input) {
                 input.removeAttribute("readOnly");
+                input.style.backgroundColor = "#fff";
             })
         }
         
