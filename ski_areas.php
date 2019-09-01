@@ -262,8 +262,6 @@ $page_title = '新增雪場';
                     item.infoEl.innerHTML = '';
                 }
 
-                submit_btn.style.display = 'none';
-
                 // 檢查必填欄位, 欄位值的格式
                 let isPass = true;
 
@@ -291,6 +289,7 @@ $page_title = '新增雪場';
                             submit_btn.style.display = 'block';
                             if (json.success) {
                                 alert("雪場新增成功!");
+                                window.location.href="ski_areas_list.php";
                             } else {
                                 alert("雪場新增失敗!");
                             }
