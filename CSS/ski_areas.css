@@ -1,0 +1,24 @@
+
+.card {
+    width: 700px;
+    
+}
+
+label {
+    margin-top: 1rem;
+}
+input {
+    margin: 1rem 0 0.5rem 0;
+} 
+small {
+    color: red;
+}
+
+.access {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+#submit_btn {
+    margin-top: 2rem;
+}
