@@ -280,8 +280,6 @@ if(empty($row)) {
                     item.infoEl.innerHTML = '';
                 }
 
-                submit_btn.style.display = 'none';
-
                 // 檢查必填欄位, 欄位值的格式
                 let isPass = true;
 
@@ -309,6 +307,7 @@ if(empty($row)) {
                             submit_btn.style.display = 'block';
                             if (json.success) {
                                 alert("資料修改成功!");
+                                window.location.href="ski_areas_list.php";
                             } else {
                                 alert("資料未修改!");
                             }
