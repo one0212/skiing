@@ -22,16 +22,6 @@ session_start();
     WHERE `bid` =?";
 
 
-/*
-    $vendor_sql = "INSERT INTO `MGNT_VENDOR`(`bid`, `name`, `status`, `create_time`, `update_time`) VALUES (?, ?, 'disable', NOW(), NOW())";
-    $vendor_stmt = $db->prepare($vendor_sql)->execute([
-            $_POST['bid'],
-            $_POST['name'],
-            $_POST['create_time'],
-            $_POST['update_time']
-    ]);
-*/
-
 // $stmt = $pdo->prepare($sql);
     $vendor_detail_stmt1 = $db->prepare($vendor_detail_sql1)->execute([
         $_POST['name'],
@@ -73,17 +63,13 @@ if (isset($_SESSION['bid'])){
 // echo $row2;
 
 // $row2 = $pdo->query($sql)->fetch();
-if(empty($row1) and empty($row2)) {
-    header('Location: login.php');
-    exit;
-}
 
 ?>
 
 <?php include("include/__head.php");?>
 <?php include("include/__navbar.php");?>
 
-<div id="wrapper" style="max-width:1024px;display:flex;">
+<div style="display:flex;">
 <?php include("include/__sidebar.php");?>
     
     
@@ -150,7 +136,6 @@ if(empty($row1) and empty($row2)) {
             </form>
         </div>
         <!-- <input  type="button" value="">    onclick="return false"-->
-    </div>
 
     <script>
         let btn = document.querySelector('.vendor-button');
@@ -177,18 +162,33 @@ if(empty($row1) and empty($row2)) {
             {
                 id: 'name',
                 pattern: /.+/,
-                info: '請填寫正確的姓名'
+                info: '這是必填欄位！'
+            },
+            {
+                id: 'bank_account',
+                pattern: /.+/,
+                info: '這是必填欄位！'
+            },
+            {
+                id: 'company_no',
+                pattern: /.+/,
+                info: '這是必填欄位！'
+            },
+            {
+                id: 'contact_person',
+                pattern: /.+/,
+                info: '這是必填欄位！'
             },
             {
                 id: 'contact_email',
                 // pattern: /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i,
                 pattern: /.+/,
-                info: '請填寫正確的 email 格式'
+                info: '這是必填欄位！'
             },
             {
                 id: 'contact_number',
                 pattern: /.+/,
-                info: '請填寫正確的手機號碼格式'
+                info: '這是必填欄位！'
             },
         ];
 
@@ -238,23 +238,23 @@ if(empty($row1) and empty($row2)) {
             // }
            return isPass
 
-        btn.onclick = () => {
-            let principalValue = principal.value;
-            contactPerson.value = principalValue;
+            btn.onclick = () => {
+                let principalValue = principal.value;
+                contactPerson.value = principalValue;
             
-        }
-        finished.onclick = () => {
-            for(let i=0; i<inputs.length; i++){
-                inputs[i].style.border = "none" ;
-                // inputs[i].style.border-bottom = 1 + "px"+ ''+ "solid" + '' +  "#000";
-                finished.style.display = "none";
-                btn.style.display = "none";
-
             }
-            return false
-            //inputs.style.border = "none";
-        }
+            finished.onclick = () => {
+                for(let i=0; i<inputs.length; i++){
+                    inputs[i].style.border = "none" ;
+                    // inputs[i].style.border-bottom = 1 + "px"+ ''+ "solid" + '' +  "#000";
+                    finished.style.display = "none";
+                    btn.style.display = "none";
 
+                }
+                return false
+            //inputs.style.border = "none";
+            }
+        }
     </script>
 <?php include("include/__footer.php");?>
 
