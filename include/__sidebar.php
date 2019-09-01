@@ -25,10 +25,15 @@
 <link rel="stylesheet" href="css/sidebar.css">
     <aside>
         <ul id="manage">
-            <li class="sidebar-item"><a href="mgnt_vandor.php">廠商管理</a></li>
+            <li class="sidebar-item"><a href="#">廠商管理</a></li>
             <li class="sidebar-item"><a href="#">會員管理</a></li>
             <li class="sidebar-item"><a href="ski_areas.php">雪場資訊管理</a></li>
-            <li class="sidebar-item"><a href="#">教練管理</a></li>
+            <li class="sidebar-item"><a href="#">教練管理
+            <div class="sidebar-submenu">
+                    <a class="submenu-item" href="__coachinsert.php">新增教練</a>
+                    <a class="submenu-item" href="__coachlist.php">教練管理</a>
+                    </div>
+            </a></li>
             <li class="sidebar-item">
                 <a href="#">飯店資訊管理
                     <div class="sidebar-submenu">
@@ -41,7 +46,7 @@
             <!-- <li class="sidebar-item"><a href="#">新增商品</a></li> -->
             <li class="sidebar-item"><a href="#">品牌廠商管理</a></li>
             <li class="sidebar-item"><a href="#">景點管理</a></li>
-            <li class="sidebar-item"><a href="#">訂單管理</a></li> 
+            <li class="sidebar-item"><a href="#">訂單管理</a></li>
             <li class="sidebar-item"><a href="vendor.php">基本資料</a></li>
         </ul>
     </aside>
