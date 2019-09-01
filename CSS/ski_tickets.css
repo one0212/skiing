@@ -1,0 +1,22 @@
+
+.card {
+    width: 700px;
+    
+}
+label {
+    margin-top: 1rem;
+}
+input {
+    margin: 1rem 0 0.5rem 0;
+} 
+.type1 {
+    margin: 1rem 0 2rem 0;
+}
+small {
+    color: red;
+    font-size: 
+}
+
+#submit_btn {
+    margin-top: 2rem;
+}
