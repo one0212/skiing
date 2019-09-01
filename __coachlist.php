@@ -1,4 +1,5 @@
 <?php require 'config.php';
+session_start();
 // 連線資料
 // require __DIR__.'/__connect_db.php';
 $page_name = 'data_list';

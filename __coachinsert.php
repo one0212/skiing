@@ -1,6 +1,6 @@
 <?php require 'config.php';
 // 連線資料
-
+session_start();
 // 自己的php
 
 ?>

@@ -1,5 +1,6 @@
 <?php require("config.php"); 
 // 連線資料
+session_start();
 
 
 $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
