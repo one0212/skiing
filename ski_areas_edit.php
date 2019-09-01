@@ -3,10 +3,22 @@
 
 
 // 自己的php
-$page_name = 'ski_areas';
+$page_name = 'ski_areas_edit';
 
-$page_title = '新增雪場';
+$page_title = '編輯雪場';
 
+$sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
+if(empty($sid)) {
+    header('Location: ski_areas_list.php');
+    exit;
+}
+
+$sql = "SELECT * FROM `MGNT_SKI_AREAS` WHERE `sid`=$sid";
+$row = $db->query($sql)->fetch();
+if(empty($row)) {
+    header('Location: ski_areas_list.php');
+    exit;
+}
 
 
 ?>
@@ -29,33 +41,34 @@ $page_title = '新增雪場';
         <div class="card" style="margin: 2rem">
             <div class="card-body">
                 <form name="form1" onsubmit="return checkForm()">
+                <input type="hidden" name="sid" value="<?= $row['sid'] ?>">
                     <div class="form_group">
                         <label for="">名稱</label>
-                        <input type="text" class="form-control" id="name" name="name">
+                        <input type="text" class="form-control" id="name" name="name" value="<?= htmlentities($row['name']) ?>">
                         <small id="nameHelp" class="form-text"></small>
                     </div>
                     <div class="form_group">
                         <label for="">國家</label>
-                        <input type="text" class="form-control" id="country" name="country">
+                        <input type="text" class="form-control" id="country" name="country" value="<?= htmlentities($row['country']) ?>">
                         <small id="countryHelp" class="form-text"></small>
                     </div>
                     <div class="form_group">
                         <label for="">地址</label>
-                        <input type="text" class="form-control" id="address" name="address">
+                        <input type="text" class="form-control" id="address" name="address" value="<?= htmlentities($row['address']) ?>">
                         <small id="addressHelp" class="form-text"></small>
                     </div>
                     <div class="form_group">
                         <label for="">描述</label>
-                        <input type="text" class="form-control" id="description" name="description">
+                        <input type="text" class="form-control" id="description" name="description" value="<?= htmlentities($row['description']) ?>">
                     </div>
                     <div class="form_group">
                         <label for="">營運期間</label>
-                        <input type="text" class="form-control" id="season" name="skiing_season">
+                        <input type="text" class="form-control" id="season" name="skiing_season" value="<?= htmlentities($row['skiing_season']) ?>">
                         <small id="seasonHelp" class="form-text"></small>
                     </div>
                     <div class="form_group">
                         <label for="">營業時間</label>
-                        <input type="text" class="form-control" id="hours" name="business_hours">
+                        <input type="text" class="form-control" id="hours" name="business_hours" value="<?= htmlentities($row['business_hours']) ?>">
                         <small id="hoursHelp" class="form-text"></small>
                     </div>
 
@@ -67,32 +80,33 @@ $page_title = '新增雪場';
                         <label for="">雪場圖片</label>
                         <input type="file" class="form-control-file" id="ski_image" name="ski_image" style="display: none" onchange="myPreviewFile(event)">
                         <button type="button" class="btn btn-info" onclick="selUploadFile(event)">選擇上傳的檔案</button>
+                        <p class="p_img"><?= htmlentities($row['ski_image']) ?></p>
                         <img src="" height="200" alt="Image preview..." class="img_preview" style="display: none">
                     </div>
 
                     <div class="form_group">
                         <label for="">面積</label>
-                        <input type="text" class="form-control" id="acreage" name="acreage">
+                        <input type="text" class="form-control" id="acreage" name="acreage" value="<?= htmlentities($row['acreage']) ?>">
                         <small id="acreageHelp" class="form-text"></small>
                     </div>
                     <div class="form_group">
                         <label for="">雪道數量</label>
-                        <input type="text" class="form-control" id="number" name="number_of_courses">
+                        <input type="text" class="form-control" id="number" name="number_of_courses" value="<?= htmlentities($row['number_of_courses']) ?>">
                         <small id="numberHelp" class="form-text"></small>
                     </div>
                     <div class="form_group">
                         <label for="">最長滑行距離</label>
-                        <input type="text" class="form-control" id="longest" name="longest_run">
+                        <input type="text" class="form-control" id="longest" name="longest_run" value="<?= htmlentities($row['longest_run']) ?>">
                         <small id="longestHelp" class="form-text"></small>
                     </div>
                     <div class="form_group">
                         <label for="">最大斜度</label>
-                        <input type="text" class="form-control" id="gradient" name="slop_gradient">
+                        <input type="text" class="form-control" id="gradient" name="slop_gradient" value="<?= htmlentities($row['slop_gradient']) ?>">
                         <small id="gradientHelp" class="form-text"></small>
                     </div>
                     <div class="form_group">
                         <label for="">標高差</label>
-                        <input type="text" class="form-control" id="vertical" name="vertical_drop">
+                        <input type="text" class="form-control" id="vertical" name="vertical_drop" value="<?= htmlentities($row['vertical_drop']) ?>">
                         <small id="verticalHelp" class="form-text"></small>
                     </div>
 
@@ -100,51 +114,53 @@ $page_title = '新增雪場';
                         <label for="">雪場地圖</label>
                         <input type="file" class="form-control-file" id="ski_map" name="ski_map" style="display: none" onchange="myPreviewFile(event)">
                         <button type="button" class="btn btn-info" onclick="selUploadFile(event)">選擇上傳的檔案</button>
+                        <p class="p_img"><?= htmlentities($row['ski_map']) ?></p>
                         <img src="" height="200" alt="Image preview..." class="img_preview" style="display: none">
                     </div>
 
                     <div class="form_group">
                         <label for="">門票</label>
-                        <input type="text" class="form-control" id="tickets" name="tickets">
+                        <input type="text" class="form-control" id="tickets" name="tickets" value="<?= htmlentities($row['tickets']) ?>">
                         <small id="ticketsHelp" class="form-text"></small>
                     </div>
                     <div class="form_group">
                         <label for="">租借</label>
-                        <input type="text" class="form-control" id="rentals" name="rentals">
+                        <input type="text" class="form-control" id="rentals" name="rentals" value="<?= htmlentities($row['rentals']) ?>">
                     </div>
                     <div class="form_group">
                         <label for="">課程</label>
-                        <input type="text" class="form-control" id="lessons" name="lessons">
+                        <input type="text" class="form-control" id="lessons" name="lessons" value="<?= htmlentities($row['lessons']) ?>">
                     </div>
                     <div class="form_group">
                         <label for="">飯店</label>
-                        <input type="text" class="form-control" id="hostel" name="hostel">
+                        <input type="text" class="form-control" id="hostel" name="hostel" value="<?= htmlentities($row['hostel']) ?>">
                     </div>
 
                     <div class="form-group">
                         <label for="">飯店圖片</label>
                         <input type="file" class="form-control-file" id="hostel_image" name="hostel_image" style="display: none" onchange="myPreviewFile(event)">
                         <button type="button" class="btn btn-info" onclick="selUploadFile(event)">選擇上傳的檔案</button>
+                        <p class="p_img"><?= htmlentities($row['hostel_image']) ?></p>
                         <img src="" height="200" alt="Image preview..." class="img_preview" style="display: none">
                     </div>
 
                     <p class="access">交通</p>
                     <div class="form_group">
                         <label for="">汽車</label>
-                        <input type="text" class="form-control" id="car" name="access_car">
+                        <input type="text" class="form-control" id="car" name="access_car" value="<?= htmlentities($row['access_car']) ?>">
                         <small id="carHelp" class="form-text"></small>
                     </div>
                     <div class="form_group">
                         <label for="">搭乘電車</label>
-                        <input type="text" class="form-control" id="bus" name="access_bus">
+                        <input type="text" class="form-control" id="bus" name="access_bus" value="<?= htmlentities($row['access_bus']) ?>">
                         <small id="busHelp" class="form-text"></small>
                     </div>
                     <div class="form_group">
                         <label for="">高速巴士</label>
-                        <input type="text" class="form-control" id="train" name="access_train">
+                        <input type="text" class="form-control" id="train" name="access_train" value="<?= htmlentities($row['access_train']) ?>">
                         <small id="trainHelp" class="form-text"></small>
                     </div>
-                    <button type="submit" class="submit btn btn-secondary" id="submit_btn">新增雪場</button>
+                    <button type="submit" class="submit btn btn-secondary" id="submit_btn">確認修改</button>
                 </form>
             </div>
         </div>
@@ -160,6 +176,8 @@ $page_title = '新增雪場';
                 var me = event.target;
                 var preview = me.closest('.form-group').querySelector('img');
                 preview.style.display = 'block';
+                var p = me.closest('.form-group').querySelector('.p_img');
+                p.style.display = 'none';
 
                 var file = me.files[0];
                 var reader = new FileReader();
@@ -279,7 +297,7 @@ $page_title = '新增雪場';
                 let fd = new FormData(document.form1);
 
                 if (isPass) {
-                    fetch('ski_areas_api.php', {
+                    fetch('ski_areas_edit_api.php', {
                             method: 'POST',
                             body: fd,
                         })
@@ -290,9 +308,9 @@ $page_title = '新增雪場';
                             console.log(json);
                             submit_btn.style.display = 'block';
                             if (json.success) {
-                                alert("雪場新增成功!");
+                                alert("資料修改成功!");
                             } else {
-                                alert("雪場新增失敗!");
+                                alert("資料未修改!");
                             }
                         });
                 } else {
