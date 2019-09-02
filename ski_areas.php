@@ -25,7 +25,7 @@ $page_title = '新增雪場';
     <!-- 自己的html,css   code放這邊 -->
     <link rel="stylesheet" href="css/ski_areas.css">
     <div class="container">
-    <a href="ski_areas_list.php" class="page-link" style="color:#aaa; margin-top:1.3rem; margin-left:2rem; width:9.3rem;"><i class="fas fa-undo-alt" style="color:#aaa; margin:0.2rem;"></i></i>雪場資料列表</a>
+        <a href="ski_areas_list.php" class="page-link" style="color:#aaa; margin-top:1.3rem; margin-left:2rem; width:9.3rem;"><i class="fas fa-undo-alt" style="color:#aaa; margin:0.2rem;"></i></i>雪場資料列表</a>
         <div class="card" style="margin: 2rem">
             <div class="card-body">
                 <form name="form1" onsubmit="return checkForm()">
@@ -45,8 +45,8 @@ $page_title = '新增雪場';
                         <small id="addressHelp" class="form-text"></small>
                     </div>
                     <div class="form_group">
-                        <label for="">描述</label>
-                        <input type="text" class="form-control" id="description" name="description">
+                        <label for="" style="margin-bottom:1rem">描述</label><br>
+                        <textarea id="description" name="description" rows="8" cols="87" style="overflow-y:hidden;resize:none;padding:0.7rem 0.8rem;line-height:1.5rem;border: 1px solid #ced4da;border-radius: 0.25rem;"></textarea>
                     </div>
                     <div class="form_group">
                         <label for="">營運期間</label>
@@ -109,12 +109,12 @@ $page_title = '新增雪場';
                         <small id="ticketsHelp" class="form-text"></small>
                     </div>
                     <div class="form_group">
-                        <label for="">租借</label>
-                        <input type="text" class="form-control" id="rentals" name="rentals">
+                        <label for="" style="margin-bottom:1rem">租借</label><br>
+                        <textarea id="rentals" name="rentals" rows="4" cols="87" style="overflow-y:hidden;resize:none;padding:0.7rem 0.8rem;line-height:1.5rem;border: 1px solid #ced4da;border-radius: 0.25rem;"></textarea>
                     </div>
                     <div class="form_group">
-                        <label for="">課程</label>
-                        <input type="text" class="form-control" id="lessons" name="lessons">
+                        <label for="" style="margin-bottom:1rem">課程</label><br>
+                        <textarea id="lessons" name="lessons" rows="4" cols="87" style="overflow-y:hidden;resize:none;padding:0.7rem 0.8rem;line-height:1.5rem;border: 1px solid #ced4da;border-radius: 0.25rem;"></textarea>
                     </div>
                     <div class="form_group">
                         <label for="">飯店</label>
@@ -289,7 +289,7 @@ $page_title = '新增雪場';
                             submit_btn.style.display = 'block';
                             if (json.success) {
                                 alert("雪場新增成功!");
-                                window.location.href="ski_areas_list.php";
+                                window.location.href = "ski_areas_list.php";
                             } else {
                                 alert("雪場新增失敗!");
                             }

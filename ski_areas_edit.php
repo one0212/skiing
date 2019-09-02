@@ -5,7 +5,7 @@ session_start();
 // 自己的php
 $page_name = 'ski_areas_edit';
 
-$page_title = '編輯雪場';
+$page_title = '編輯雪場資料';
 
 $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
 if(empty($sid)) {
@@ -34,7 +34,7 @@ if(empty($row)) {
 
 
     <!-- 自己的html,css   code放這邊 -->
-    <link rel="stylesheet" href="css/ski_areas.css">
+    <link rel="stylesheet" href="css/ski_areas_edit.css">
     <div class="container">
     <a href="ski_areas_list.php" class="page-link" style="color:#aaa; margin-top:1.3rem; margin-left:2rem; width:9.3rem;"><i class="fas fa-undo-alt" style="color:#aaa; margin:0.2rem;"></i></i>雪場資料列表</a>
         <div class="card" style="margin: 2rem">
@@ -57,8 +57,8 @@ if(empty($row)) {
                         <small id="addressHelp" class="form-text"></small>
                     </div>
                     <div class="form_group">
-                        <label for="">描述</label>
-                        <input type="text" class="form-control" id="description" name="description" value="<?= htmlentities($row['description']) ?>">
+                        <label for="" style="margin-bottom:1rem">描述</label><br>
+                        <textarea id="description" name="description" rows="8" cols="87"><?= htmlentities($row['description']) ?></textarea>
                     </div>
                     <div class="form_group">
                         <label for="">營運期間</label>
@@ -80,7 +80,7 @@ if(empty($row)) {
                         <input type="file" class="form-control-file" id="ski_image" name="ski_image" style="display: none" onchange="myPreviewFile(event)">
                         <button type="button" class="btn btn-info" onclick="selUploadFile(event)">選擇上傳的檔案</button><br>
                         <img src="<?= 'uploads/'.htmlentities($row['ski_image']) ?>" alt="" style="width:150px">
-                        <p class="p_img"><?= $row['ski_image'] ?></p>
+                        <p class="p_img" style="display:none"><?= $row['ski_image'] ?></p>
                         <img src="" height="200" alt="Image preview..." class="img_preview" style="display: none">
                     </div>
 
@@ -115,7 +115,7 @@ if(empty($row)) {
                         <input type="file" class="form-control-file" id="ski_map" name="ski_map" style="display: none" onchange="myPreviewFile(event)">
                         <button type="button" class="btn btn-info" onclick="selUploadFile(event)">選擇上傳的檔案</button><br>
                         <img src="<?= 'uploads/'.htmlentities($row['ski_map']) ?>" alt="" style="width:150px">
-                        <p class="p_img"><?= htmlentities($row['ski_map']) ?></p>
+                        <p class="p_img" style="display:none"><?= htmlentities($row['ski_map']) ?></p>
                         <img src="" height="200" alt="Image preview..." class="img_preview" style="display: none">
                     </div>
 
@@ -125,12 +125,12 @@ if(empty($row)) {
                         <small id="ticketsHelp" class="form-text"></small>
                     </div>
                     <div class="form_group">
-                        <label for="">租借</label>
-                        <input type="text" class="form-control" id="rentals" name="rentals" value="<?= htmlentities($row['rentals']) ?>">
+                        <label for="" style="margin-bottom:1rem">租借</label><br>
+                        <textarea id="rentals" name="rentals" rows="4" cols="87"><?= htmlentities($row['rentals']) ?></textarea>
                     </div>
                     <div class="form_group">
-                        <label for="">課程</label>
-                        <input type="text" class="form-control" id="lessons" name="lessons" value="<?= htmlentities($row['lessons']) ?>">
+                        <label for="" style="margin-bottom:1rem">課程</label><br>
+                        <textarea id="lessons" name="lessons" rows="4" cols="87"><?= htmlentities($row['lessons']) ?></textarea>
                     </div>
                     <div class="form_group">
                         <label for="">飯店</label>
@@ -142,7 +142,7 @@ if(empty($row)) {
                         <input type="file" class="form-control-file" id="hostel_image" name="hostel_image" style="display: none" onchange="myPreviewFile(event)">
                         <button type="button" class="btn btn-info" onclick="selUploadFile(event)">選擇上傳的檔案</button><br>
                         <img src="<?= 'uploads/'.htmlentities($row['hostel_image']) ?>" alt="" style="width:150px">
-                        <p class="p_img"><?= htmlentities($row['hostel_image']) ?></p>
+                        <p class="p_img" style="display:none"><?= htmlentities($row['hostel_image']) ?></p>
                         <img src="" height="200" alt="Image preview..." class="img_preview" style="display: none">
                     </div>
 
@@ -177,9 +177,8 @@ if(empty($row)) {
 
                 var me = event.target;
                 var preview = me.closest('.form-group').querySelector('img');
-                preview.style.display = 'block';
                 var p = me.closest('.form-group').querySelector('.p_img');
-
+              
                 var file = me.files[0];
                 var reader = new FileReader();
 
@@ -190,6 +189,7 @@ if(empty($row)) {
                 if (file) {
                     reader.readAsDataURL(file);
                 }
+                
             }
 
             const submit_btn = document.querySelector('#submit_btn');

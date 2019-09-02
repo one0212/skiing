@@ -83,7 +83,7 @@ $tickets_stmt = $db->query($sql);
             <table class="table table-striped table-bordered table_1">
                 
                 <tr>
-                    <th scope="col"><i class="fas fa-trash-alt"></i></th>
+                    <th scope="col"><i class="far fa-trash-alt"></i></th>
                     <th scope="col"><i class="fas fa-hashtag"></i></th>
                     <th scope="col">名稱</th>
                     <th scope="col">門票</th>
@@ -94,29 +94,26 @@ $tickets_stmt = $db->query($sql);
                 </tr>
                 <?php while ($r_tickets = $tickets_stmt->fetch()) {  ?>
                 <tr>
-                    <td>
-                        <a href="javascript:delete_one(<?= $r_tickets['sid'] ?>)"><i class="fas fa-trash-alt icon"></i></a>
-                    </td>
+                    <td><a href="javascript:delete_one(<?= $r_tickets['sid'] ?>)"><i class="far fa-trash-alt icon"></i></a></td>
                     <td><?= $r_tickets['sid'] ?></td>
                     <td><?= htmlentities($r_tickets['name']) ?></td>
                     <td><?= htmlentities($r_tickets['ticket']) ?></td>
                     <td><?= htmlentities($r_tickets['type']) ?></td>
                     <td><?= htmlentities($r_tickets['rate']) ?></td>
                     <td><?= htmlentities($r_tickets['description']) ?></td>
-                    <td><a href="ski_tickets_edit.php?sid=<?= $r_tickets['sid'] ?>"><i class="fas fa-edit icon"></i></a>
-                    </td>
+                    <td><a href="ski_tickets_edit.php?sid=<?= $r_tickets['sid'] ?>"><i class="fas fa-edit icon"></i></a></td>
                 </tr>
             <?php } ?>
 
             </table>
         </div>
-        <!-- <script>
+        <script>
         function delete_one(sid) {
             if(confirm(`確定要刪除編號為 ${sid} 的資料嗎?`)){
                 location.href = 'ski_tickets_delete.php?sid=' + sid;
             }
         }
-    </script> -->
+    </script>
     </div>
 </div>
 <?php include("include/__footer.php"); ?>

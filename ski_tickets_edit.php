@@ -5,7 +5,7 @@ session_start();
 // 自己的php
 $page_name = 'ski_tickets_edit';
 
-$page_title = '編輯雪場';
+$page_title = '編輯票劵資料';
 
 $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
 if(empty($sid)) {
@@ -40,7 +40,7 @@ if(empty($row)) {
         <div class="card" style="margin: 2rem">
             <div class="card-body">
             <form name="form1" onsubmit="return checkForm()">
-            <input type="text" name="sid" value="<?= htmlentities($row['sid']) ?>" style="display:none">
+            <input type="hidden" name="sid" value="<?= ($row['sid']) ?>">
                     <div class="form_group">
                         <label for="">名稱</label>
                         <input type="text" class="form-control" id="name" name="name" value="<?= htmlentities($row['name']) ?>">
