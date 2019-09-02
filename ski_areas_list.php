@@ -133,7 +133,7 @@ $stmt = $db->query($sql);
                         <th scope="col">雪場圖片</th>
                     </tr>
                     <tr>
-                        <td><?= htmlentities($r['ski_image']) ?></td>
+                        <td><img src="<?= 'uploads/'.htmlentities($r['ski_image']) ?>" alt="" style="width:150px"><p class="p_img"><?= htmlentities($r['ski_image']) ?></p></td>
                     </tr>
                     <tr>
                         <th scope="col">面積</th>
@@ -169,7 +169,7 @@ $stmt = $db->query($sql);
                         <th scope="col">雪場地圖</th>
                     </tr>
                     <tr>
-                        <td><?= htmlentities($r['ski_map']) ?></td>
+                        <td><img src="<?= 'uploads/'.htmlentities($r['ski_map']) ?>" alt="" style="width:150px"><p class="p_img"><?= htmlentities($r['ski_map']) ?></p></td>
                     </tr>
                     <tr>
                         <th scope="col">門票</th>
@@ -199,7 +199,7 @@ $stmt = $db->query($sql);
                         <th scope="col">飯店圖片</th>
                     </tr>
                     <tr>
-                        <td><?= htmlentities($r['hostel_image']) ?></td>
+                        <td><img src="<?= 'uploads/'.htmlentities($r['hostel_image']) ?>" alt="" style="width:150px"><p class="p_img"><?= htmlentities($r['hostel_image']) ?></p></td>
                     </tr>
                     <tr>
                         <th scope="col">汽車</th>

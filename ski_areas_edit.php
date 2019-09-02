@@ -78,7 +78,8 @@ if(empty($row)) {
                     <div class="form-group">
                         <label for="">雪場圖片</label>
                         <input type="file" class="form-control-file" id="ski_image" name="ski_image" style="display: none" onchange="myPreviewFile(event)">
-                        <button type="button" class="btn btn-info" onclick="selUploadFile(event)">選擇上傳的檔案</button>
+                        <button type="button" class="btn btn-info" onclick="selUploadFile(event)">選擇上傳的檔案</button><br>
+                        <img src="<?= 'uploads/'.htmlentities($row['ski_image']) ?>" alt="" style="width:150px">
                         <p class="p_img"><?= $row['ski_image'] ?></p>
                         <img src="" height="200" alt="Image preview..." class="img_preview" style="display: none">
                     </div>
@@ -112,7 +113,8 @@ if(empty($row)) {
                     <div class="form-group">
                         <label for="">雪場地圖</label>
                         <input type="file" class="form-control-file" id="ski_map" name="ski_map" style="display: none" onchange="myPreviewFile(event)">
-                        <button type="button" class="btn btn-info" onclick="selUploadFile(event)">選擇上傳的檔案</button>
+                        <button type="button" class="btn btn-info" onclick="selUploadFile(event)">選擇上傳的檔案</button><br>
+                        <img src="<?= 'uploads/'.htmlentities($row['ski_map']) ?>" alt="" style="width:150px">
                         <p class="p_img"><?= htmlentities($row['ski_map']) ?></p>
                         <img src="" height="200" alt="Image preview..." class="img_preview" style="display: none">
                     </div>
@@ -138,7 +140,8 @@ if(empty($row)) {
                     <div class="form-group">
                         <label for="">飯店圖片</label>
                         <input type="file" class="form-control-file" id="hostel_image" name="hostel_image" style="display: none" onchange="myPreviewFile(event)">
-                        <button type="button" class="btn btn-info" onclick="selUploadFile(event)">選擇上傳的檔案</button>
+                        <button type="button" class="btn btn-info" onclick="selUploadFile(event)">選擇上傳的檔案</button><br>
+                        <img src="<?= 'uploads/'.htmlentities($row['hostel_image']) ?>" alt="" style="width:150px">
                         <p class="p_img"><?= htmlentities($row['hostel_image']) ?></p>
                         <img src="" height="200" alt="Image preview..." class="img_preview" style="display: none">
                     </div>
@@ -176,7 +179,6 @@ if(empty($row)) {
                 var preview = me.closest('.form-group').querySelector('img');
                 preview.style.display = 'block';
                 var p = me.closest('.form-group').querySelector('.p_img');
-                p.style.display = 'none';
 
                 var file = me.files[0];
                 var reader = new FileReader();

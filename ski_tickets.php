@@ -38,15 +38,15 @@ $page_title = '新增票劵';
                     <div class="tickets1">
                     <label for="">門票</label><br>
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline1" name="ticket" class="custom-control-input" value="1">
+                        <input type="radio" id="customRadioInline1" name="ticket" class="custom-control-input" value="兩日票">
                         <label class="custom-control-label" for="customRadioInline1">兩日票</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline2" name="ticket" class="custom-control-input" value="2">
+                        <input type="radio" id="customRadioInline2" name="ticket" class="custom-control-input" value="一日票">
                         <label class="custom-control-label" for="customRadioInline2">一日票</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline3" name="ticket" class="custom-control-input" value="3">
+                        <input type="radio" id="customRadioInline3" name="ticket" class="custom-control-input" value="半日票(5小時)">
                         <label class="custom-control-label" for="customRadioInline3">半日票(5小時)</label>
                         <small id="ticketHelp" class="form-text"></small>
                     </div>
@@ -55,11 +55,11 @@ $page_title = '新增票劵';
                     <div class="type1">
                     <label for="">類型</label><br>
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline4" name="type" class="custom-control-input" value="4">
+                        <input type="radio" id="customRadioInline4" name="type" class="custom-control-input" value="一般(大人)">
                         <label class="custom-control-label" for="customRadioInline4">一般(大人)</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline5" name="type" class="custom-control-input" value="5">
+                        <input type="radio" id="customRadioInline5" name="type" class="custom-control-input" value="優待(小孩、老人)">
                         <label class="custom-control-label" for="customRadioInline5">優待(小孩、老人)</label>
                         <small id="typeHelp" class="form-text"></small>
                     </div>
@@ -136,7 +136,7 @@ $page_title = '新增票劵';
                             submit_btn.style.display = 'block';
                             if (json.success) {
                                 alert("票劵新增成功!");
-                                // window.location.href="ski_tickets_list.php";
+                                window.location.href="ski_tickets_list.php";
                             } else {
                                 alert("票劵新增失敗!");
                             }
