@@ -1,5 +1,5 @@
 <?php 
-require_once("config.php");
+require("config.php");
 
 $bid = $_SESSION['bid'];
 $sql = "SELECT mf.name, mf.path" .
@@ -12,9 +12,9 @@ $rows = $db->query($sql)->fetchAll();
     <aside>
         <ul id="manage">
         <?php
-        foreach($rows as $row) {
-            $function_name = $row['name'];
-            $function_path = $row['path'];
+        foreach($rows as $r) {
+            $function_name = $r['name'];
+            $function_path = $r['path'];
             echo "<li class='sidebar-item'><a href='$function_path'>$function_name</a></li>";
             // <li class="sidebar-item"><a href="#">會員管理</a></li>
             // <li class="sidebar-item"><a href="ski_areas.php">雪場資訊管理</a></li>

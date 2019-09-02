@@ -1,6 +1,6 @@
 <?php require("config.php");
 // 連線資料
-
+session_start();
 
 // 自己的php
 $page_name = 'ski_tickets';
@@ -16,7 +16,7 @@ $page_title = '新增票劵';
 <?php include("include/__navbar.php"); ?>
 <!-- 導覽列 bootstrap的code -->
 
-<div id="wrapper" style="max-width:1024px;display:flex;">
+<div style="display:flex;">
     <?php include("include/__sidebar.php"); ?>
     <!-- 側邊欄 -->
 
