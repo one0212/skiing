@@ -1,6 +1,6 @@
 <?php require("config.php");
 // 連線資料
-
+session_start();
 
 // 自己的php
 $page_name = 'ski_areas_edit';
@@ -20,7 +20,6 @@ if(empty($row)) {
     exit;
 }
 
-
 ?>
 
 <?php include("include/__head.php"); ?>
@@ -28,7 +27,7 @@ if(empty($row)) {
 <?php include("include/__navbar.php"); ?>
 <!-- 導覽列 bootstrap的code -->
 
-<div id="wrapper" style="max-width:1024px;display:flex;">
+<div style="display:flex;">
     <?php include("include/__sidebar.php"); ?>
     <!-- 側邊欄 -->
 
@@ -80,7 +79,7 @@ if(empty($row)) {
                         <label for="">雪場圖片</label>
                         <input type="file" class="form-control-file" id="ski_image" name="ski_image" style="display: none" onchange="myPreviewFile(event)">
                         <button type="button" class="btn btn-info" onclick="selUploadFile(event)">選擇上傳的檔案</button>
-                        <p class="p_img"><?= htmlentities($row['ski_image']) ?></p>
+                        <p class="p_img"><?= $row['ski_image'] ?></p>
                         <img src="" height="200" alt="Image preview..." class="img_preview" style="display: none">
                     </div>
 
