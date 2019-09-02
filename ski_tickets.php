@@ -80,30 +80,6 @@ $page_title = '新增票劵';
             </div>
         </div>
         <script>
-            function selUploadFile(event) {
-                var btn = event.target;
-                var field = btn.closest('.form-group').querySelector('input');
-                field.click();
-            }
-
-            function myPreviewFile(event) {
-
-                var me = event.target;
-                var preview = me.closest('.form-group').querySelector('img');
-                preview.style.display = 'block';
-
-                var file = me.files[0];
-                var reader = new FileReader();
-
-                reader.addEventListener("load", function() {
-                    preview.src = reader.result;
-                }, false);
-
-                if (file) {
-                    reader.readAsDataURL(file);
-                }
-            }
-
             const submit_btn = document.querySelector('#submit_btn');
             let i, s, item;
             const required_fields = [{
