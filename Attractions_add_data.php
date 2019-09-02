@@ -1,4 +1,7 @@
 <?php require("config.php");
+
+session_start();
+
 // 連線資料
 $page_name = 'data_insert';
 $page_title = '新增資料';
@@ -7,7 +10,7 @@ $page_title = '新增資料';
 ?>
 
 
-
+<link rel="stylesheet" href="fontawesome/css/all.css">
 <?php include("include/__head.php"); ?>
 <!-- HTML開頭＋link -->
 <?php include("include/__navbar.php"); ?>
@@ -16,12 +19,22 @@ $page_title = '新增資料';
     <?php include("include/__sidebar.php"); ?>
     <!-- 側邊欄 -->
 
-    <div class="container" style="margin-top:20px">
-
-
+    <div class="container" style="margin-top:50px">
 
         <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-6">
+                <div class="d-flex flex-row-reverse">
+                    <div class="">
+                        <a href="Attractions.php"><i class="fas fa-undo">返回資料列表</i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
 
+
+        <div class="row" style="margin-top:10px">
             <div class="col-lg-2"></div>
             <div class="col-lg-6">
                 <div class="card">
@@ -33,16 +46,24 @@ $page_title = '新增資料';
                         <h5 class="card-title">新增資料</h5>
                         <!-- 接收表單送出去的資料 action="Attractions_add_data_api.php" -->
                         <form onsubmit="return checkForm()" name="form1">
-
-                            <select class="form-control" style="margin-top:20px" name="master_id">
-                                <option>1</option>
+                               <div style="margin-top:20px"><p>選擇雪場</p></div>
+                            <select class="form-control"  name="master_id" style="margin-top:5px"> 
+                            
+                                <option value="1">札幌國際雪場</option>
+                                <option value="2">富良野滑雪場</option>
+                                <option value="3">上越國際滑雪場</option>
+                                <option value="4">妙高杉之原滑雪場</option>
+                                <option value="5">苗場滑雪場</option>
+                                <option value="6">藏王溫泉滑雪場</option>
+                                <option value="7">八甲田滑雪場</option>
 
                             </select>
 
-
-                            <select class="form-control" style="margin-top:20px" name="classification_id">
-                                <option>2</option>
-
+                            <div style="margin-top:20px"><p>選擇類別</p></div>
+                            <select class="form-control" style="margin-top:5px" name="classification_id">
+                                <option value="1">景點</option>
+                                <option value="2">美食</option>
+                                <option value="3">娛樂</option>
                             </select>
 
 
