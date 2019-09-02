@@ -1,6 +1,7 @@
 <?php require("config.php");
 // 連線資料
 
+session_start();
 // 這個變數 用在<title>標籤中
 $page_title = '資料列表';
 // 這個變數 是用在下面引入的navbar檔案
@@ -57,36 +58,45 @@ $stmt = $db->query($sql);
 <!-- 導覽列 bootstrap的code -->
 
 
-<div id="" style="display:flex; max-width:100%;">
-    
+<div style="display:flex;">
+
 
     <?php include("include/__sidebar.php"); ?>
     <!-- 側邊欄 -->
 
-    
-
-    <div class="container" >
-
-  
-        <nav aria-label="Page navigation example" style="margin-top:100px">
-            <ul class="pagination">
-
-                <li class="page-item ">
-                    <a class="page-link" href="?page=<?= $page - 1 ?>"><i class="fas fa-caret-left"></i></a>
-                <li>
-                    <!-- 用for迴圈來寫頁籤 -->
-                    <?php for ($i = 1; $i <= $totalPages; $i++) : ?>
-                <li class="page-item <?= $i == $page ? 'active' : '' ?>">
-                    <a class="page-link" href="?page=<?= $i ?>"><?= $i ?></a>
-                <li>
-                <?php endfor; ?>
 
 
-                <li class="page-item ">
-                    <a class="page-link" href="?page=<?= $page + 1 ?>"><i class="fas fa-caret-right"></i></a>
-                <li>
-            </ul>
-        </nav>
+    <div class="container-fliud">
+
+        <div class="d-flex justify-content-between align-items-center" style="margin-top:100px">
+            <div>
+                <nav aria-label="Page navigation example" >
+                    <ul class="pagination">
+
+                        <li class="page-item ">
+                            <a class="page-link" href="?page=<?= $page - 1 ?>"><i class="fas fa-caret-left"></i></a>
+                        <li>
+                            <!-- 用for迴圈來寫頁籤 -->
+                            <?php for ($i = 1; $i <= $totalPages; $i++) : ?>
+                        <li class="page-item <?= $i == $page ? 'active' : '' ?>">
+                            <a  class="page-link" style="line-height: 1"  href="?page=<?= $i ?>"><?= $i ?></a>
+                        <li>
+                        <?php endfor; ?>
+
+
+                        <li class="page-item ">
+                            <a class="page-link" href="?page=<?= $page + 1 ?>"><i class="fas fa-caret-right"></i></a>
+                        <li>
+                    </ul>
+                </nav>
+            </div>
+
+
+            <div>
+                    <a style="padding-top:1px" href="Attractions_add_data.php"><i class="fas fa-folder-plus">新增資料</i></a>
+            </div>
+        </div>
+
 
 
         <table class="table  table-dark">
@@ -128,8 +138,8 @@ $stmt = $db->query($sql);
                         <td><?= htmlentities($a['information']) ?></td>
                         <td><?= htmlentities($a['x,y']) ?></td>
                         <td><?= htmlentities($a['Introduction']) ?></td>
-                        <td><a href="javascript:delete_one(<?=$a['sid']?>)"><i class="fas fa-trash"></i></a></td>
-                        <td><a href="Attractions_data_edit.php?sid=<?=$a['sid']?>"><i class="fas fa-pen-square"></i></a></td>
+                        <td><a href="javascript:delete_one(<?= $a['sid'] ?>)"><i class="fas fa-trash"></i></a></td>
+                        <td><a href="Attractions_data_edit.php?sid=<?= $a['sid'] ?>"><i class="fas fa-pen-square"></i></a></td>
                     </tr>
                 <?php }  ?>
             </tbody>
@@ -138,14 +148,14 @@ $stmt = $db->query($sql);
 
 
     </div>
-        <script>
-            function delete_one(sid) {
-                if(confirm(`確定要刪除編號為 ${sid} 的資料嗎?`)){
-                    location.href='Attractions_data_delete.php?sid='+sid;
-                }
-                
+    <script>
+        function delete_one(sid) {
+            if (confirm(`確定要刪除編號為 ${sid} 的資料嗎?`)) {
+                location.href = 'Attractions_data_delete.php?sid=' + sid;
             }
-        </script>
+
+        }
+    </script>
 
 
 </div>
