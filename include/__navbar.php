@@ -21,7 +21,7 @@
       <ul class="navbar-nav">
       <?php if(isset($_SESSION['account'])):?>
         <li class="nav-item">
-          <a class="nav-link"><?= "歡迎! " . $_SESSION['account'] ?>
+          <a class="nav-link"><?= "Hello !  " . $_SESSION['account'] ?>
           <!-- session_start();  -->
           </a>
         </li>
