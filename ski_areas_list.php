@@ -78,7 +78,8 @@ $stmt = $db->query($sql);
                 </nav>
                 <div class="d-flex">
                     <?php while ($r = $stmt->fetch()) {  ?>
-                        <a href="ski_areas_edit.php?sid=<?= $r['sid'] ?>" class="page-link" style="color:#aaa"><i class="fas fa-edit" style="color:#aaa; margin:0.1rem;"></i>編輯</a>
+                        <a href="javascript:delete_one(<?= $r['sid'] ?>)" class="page-link" style="color:#aaa"><i class="far fa-trash-alt" style="color:#aaa; margin:0.1rem;"></i>刪除</a>
+                        <a href="ski_areas_edit.php?sid=<?= $r['sid'] ?>" class="page-link" style="color:#aaa; margin-left:0.5rem;"><i class="fas fa-edit" style="color:#aaa; margin:0.1rem;"></i>編輯</a>
                     
                     <a href="ski_areas.php" class="page-link" style="color:#aaa; margin-left:0.5rem;"><i class="fas fa-plus-circle" style="color:#aaa; margin:0.1rem;"></i></i>創建</a>
                 </div>
@@ -222,28 +223,15 @@ $stmt = $db->query($sql);
 
                 <?php } ?>
 
-                <?php /*
-        <?php foreach($rows as $r): ?>
-        <tr>
-            <td><?= $r['sid'] ?></td>
-            <td><?= $r['name'] ?></td>
-            <td><?= $r['email'] ?></td>
-            <td><?= $r['mobile'] ?></td>
-            <td><?= $r['birthday'] ?></td>
-            <td><?= $r['address'] ?></td>
-        </tr>
-        <?php endforeach; ?>
-        */ ?>
-
             </table>
         </div>
-        <!-- <script>
+        <script>
         function delete_one(sid) {
             if(confirm(`確定要刪除編號為 ${sid} 的資料嗎?`)){
-                location.href = 'data_delete.php?sid=' + sid;
+                location.href = 'ski_areas_delete.php?sid=' + sid;
             }
         }
-    </script> -->
+    </script>
     </div>
 </div>
 <?php include("include/__footer.php"); ?>
