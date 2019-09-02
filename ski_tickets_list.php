@@ -77,9 +77,7 @@ $tickets_stmt = $db->query($sql);
                     </ul>
                 </nav>
                 <div class="d-flex">
-                    
-                        <a href="ski_tickets.php" class="page-link" style="color:#aaa; margin-left:0.5rem;"><i class="fas fa-plus-circle" style="color:#aaa; margin:0.1rem;"></i></i>創建</a>
-                        
+                        <a href="ski_tickets.php" class="page-link" style="color:#aaa; margin-left:0.5rem;"><i class="fas fa-plus-circle" style="color:#aaa; margin:0.1rem;"></i></i>創建</a>       
                 </div>
             </div>
             <table class="table table-striped table-bordered table_1">
