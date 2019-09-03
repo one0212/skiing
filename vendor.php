@@ -219,7 +219,7 @@ if (isset($_SESSION['bid'])){
                 item = required_fields[s];
                 console.log(item);
                 if(!item.pattern.test(item.el.value)){
-                    item.el.style.border = '1px solid red';
+                    item.el.style.border = '2px solid red';
                     item.infoEl.innerHTML = item.info;
                     isPass = false;
                 }

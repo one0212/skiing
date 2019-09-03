@@ -3,11 +3,22 @@
 session_start();
 
 // 自己的php
-$page_name = 'ski_tickets';
+$page_name = 'ski_tickets_edit';
 
-$page_title = '新增票劵';
+$page_title = '編輯票劵資料';
 
+$sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
+if (empty($sid)) {
+    header('Location: ski_tickets_list.php');
+    exit;
+}
 
+$sql = "SELECT * FROM `MGNT_SKI_TICKETS` WHERE `sid`=$sid";
+$row = $db->query($sql)->fetch();
+if (empty($row)) {
+    header('Location: ski_tickets_list.php');
+    exit;
+}
 
 ?>
 
@@ -23,50 +34,51 @@ $page_title = '新增票劵';
 
 
     <!-- 自己的html,css   code放這邊 -->
-    <link rel="stylesheet" href="css/ski_tickets.css">
+    <link rel="stylesheet" href="css/ski_areas.css">
     <div class="container">
         <a href="ski_tickets_list.php" class="page-link" style="color:#aaa; margin-top:1.3rem; margin-left:2rem; width:9.3rem;"><i class="fas fa-undo-alt" style="color:#aaa; margin:0.2rem;"></i></i>票劵資料列表</a>
         <div class="card" style="margin: 2rem">
             <div class="card-body">
                 <form name="form1" onsubmit="return checkForm()">
+                    <input type="hidden" name="sid" value="<?= ($row['sid']) ?>">
                     <div class="form_group">
                         <label for="">名稱</label>
-                        <input type="text" class="form-control" id="name" name="name">
+                        <input type="text" class="form-control" id="name" name="name" value="<?= htmlentities($row['name']) ?>">
                         <small id="nameHelp" class="form-text"></small>
                     </div>
                     <br>
                     <div class="tickets1">
-                    <label for="">門票</label><br>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline1" name="ticket" class="custom-control-input" value="兩日票">
-                        <label class="custom-control-label" for="customRadioInline1">兩日票</label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline2" name="ticket" class="custom-control-input" value="一日票">
-                        <label class="custom-control-label" for="customRadioInline2">一日票</label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline3" name="ticket" class="custom-control-input" value="半日票(5小時)">
-                        <label class="custom-control-label" for="customRadioInline3">半日票(5小時)</label>
-                        <small id="ticketHelp" class="form-text"></small>
-                    </div>
+                        <label for="">門票</label><br>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline1" name="ticket" class="custom-control-input" value="兩日票" <?php if ($row['ticket'] == "兩日票") echo ("checked"); ?>>
+                            <label class="custom-control-label" for="customRadioInline1">兩日票</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline2" name="ticket" class="custom-control-input" value="一日票" <?php if ($row['ticket'] == "一日票") echo ("checked"); ?>>
+                            <label class="custom-control-label" for="customRadioInline2">一日票</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline3" name="ticket" class="custom-control-input" value="半日票(5小時)" <?php if ($row['ticket'] == "半日票(5小時)") echo ("checked"); ?>>
+                            <label class="custom-control-label" for="customRadioInline3">半日票(5小時)</label>
+                            <small id="ticketHelp" class="form-text"></small>
+                        </div>
                     </div>
                     <br>
                     <div class="type1">
-                    <label for="">類型</label><br>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline4" name="type" class="custom-control-input" value="一般(大人)">
-                        <label class="custom-control-label" for="customRadioInline4">一般(大人)</label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline5" name="type" class="custom-control-input" value="優待(小孩、老人)">
-                        <label class="custom-control-label" for="customRadioInline5">優待(小孩、老人)</label>
-                        <small id="typeHelp" class="form-text"></small>
-                    </div>
+                        <label for="">類型</label><br>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline4" name="type" class="custom-control-input" value="一般(大人)" <?php if ($row['type'] == "一般(大人)") echo ("checked"); ?>>
+                            <label class="custom-control-label" for="customRadioInline4">一般(大人)</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline5" name="type" class="custom-control-input" value="優待(小孩、老人)" <?php if ($row['type'] == "優待(小孩、老人)") echo ("checked"); ?>>
+                            <label class="custom-control-label" for="customRadioInline5">優待(小孩、老人)</label>
+                            <small id="typeHelp" class="form-text"></small>
+                        </div>
                     </div>
                     <div class="form_group">
                         <label for="">價格</label>
-                        <input type="text" class="form-control" id="rate" name="rate">
+                        <input type="text" class="form-control" id="rate" name="rate" value="<?= htmlentities($row['rate']) ?>">
                         <small id="rateHelp" class="form-text"></small>
                     </div>
                     <br>
@@ -74,7 +86,7 @@ $page_title = '新增票劵';
                         <label for="" style="margin-bottom:1rem">描述</label><br>
                         <textarea id="description" name="description" rows="4" cols="87" style="overflow-y:hidden;resize:none;padding:0.7rem 0.8rem;line-height:1.5rem;border: 1px solid #ced4da;border-radius: 0.25rem;"></textarea>
                     </div>
-                    <button type="submit" class="submit btn btn-secondary" id="submit_btn">新增票劵</button>
+                    <button type="submit" class="submit btn btn-secondary" id="submit_btn">確認修改</button>
                 </form>
             </div>
         </div>
@@ -123,7 +135,7 @@ $page_title = '新增票劵';
                 let fd = new FormData(document.form1);
 
                 if (isPass) {
-                    fetch('ski_tickets_api.php', {
+                    fetch('ski_tickets_edit_api.php', {
                             method: 'POST',
                             body: fd,
                         })
@@ -134,10 +146,10 @@ $page_title = '新增票劵';
                             console.log(json);
                             submit_btn.style.display = 'block';
                             if (json.success) {
-                                alert("票劵新增成功!");
-                                window.location.href="ski_tickets_list.php";
+                                alert("資料修改成功!");
+                                window.location.href = "ski_tickets_list.php";
                             } else {
-                                alert("票劵新增失敗!");
+                                alert("資料未修改!");
                             }
                         });
                 } else {

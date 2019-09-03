@@ -83,9 +83,17 @@ if (empty($row)) {
                             </select>
 
 
-                            <div class="form-group" style="margin-top:100px">
-                                <label for="images">Example file input</label>
-                                <input type="file" class="form-control-file" id="images" name="images" value="<?= htmlentities($row['images']) ?>">
+                            <div class="form-group" style="margin-top:10px">
+                            <img src="<?= 'uploads/'.htmlentities($row['images']) ?>" height="200" alt="Image preview..." class="img_preview" style="">
+                                <label for="images"></label>
+<<<<<<< Updated upstream
+                                <input type="file" class="form-control-file " id="images" name="images" style="display: none" onchange="myPreviewFile(event)"><br>
+=======
+                                <input type="file" class="form-control-file " id="images" name="images" style="display:none" onchange="myPreviewFile(event)"><br>
+>>>>>>> Stashed changes
+                               
+                                <button type="button" class="btn btn-primary" style="margin-top:10px" onclick="selUploadFile(event)">選擇上傳的檔案</button>
+                               
                             </div>
 
 
@@ -148,8 +156,33 @@ if (empty($row)) {
 
 
         <script>
+
             let info_bar = document.querySelector('#info-bar');
             // let name = document.querySelector('#name');
+
+            function selUploadFile(event) {
+                var btn = event.target;
+                var field = btn.closest('.form-group').querySelector('input');
+                field.click();
+            }
+
+            function myPreviewFile(event) {
+
+                var me = event.target;
+                var preview = me.closest('.form-group').querySelector('img');
+                preview.style.display = 'block';
+
+                var file = me.files[0];
+                var reader = new FileReader();
+
+                reader.addEventListener("load", function() {
+                    preview.src = reader.result;
+                }, false);
+
+                if (file) {
+                    reader.readAsDataURL(file);
+                }
+            }
 
 
             function checkForm() {
