@@ -1,4 +1,4 @@
-<?php require("config.php");
+v<?php require("config.php");
 session_start();
 
 $page_name = 'BRAND_DATA';
@@ -19,12 +19,12 @@ $totalPages = ceil($totalRows / $per_page);
 
 #page值小於1 轉回頁面第一頁離開
 if ($page < 1) {
-    header('Location: BRAND_DATA.php');
+    header('Location: BRAND_DATA2.php');
     exit;
 }
 #page值大於總頁數 轉回頁面最後一頁離開
 if ($page > $totalPages) {
-    header('Location: BRAND_DATA.php?page=' . $totalPages);
+    header('Location: BRAND_DATA2.php?page=' . $totalPages);
     exit;
 }
 
