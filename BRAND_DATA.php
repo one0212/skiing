@@ -60,13 +60,14 @@ $stmt = $db->query($sql);
                         <li class="page-item"><a class="page-link bg-secondary text-light" href="?page=<?= $page + 1 ?>"><i class="fas fa-chevron-right"></i></a></li>
                     </ul>
                 </nav>
-            </div>
+            </div> 
             <div class="col-sm-6">
                 <form class="form-inline my-2 my-lg-0">
                     <div class="mr-3">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-secondary my-2 my-sm-0" type="submit">搜尋</button>
                     </div>
+                    
                     <div class="">
                         <button type="button" class="btn btn-success "><a class="text-light" href="BRAND_INSERT.php">新增品牌</a></button>
                     </div>
