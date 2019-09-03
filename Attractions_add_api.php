@@ -10,6 +10,19 @@ $result=[
 ];
 
 
+$upload_dir = __DIR__. '/uploads/';
+
+$allowed_types = [
+    'image/png',
+    'image/jpeg',
+];
+
+$exts = [
+    'image/png' => '.png',
+    'image/jpeg' => '.jpg',
+];
+
+
 // 如果沒有輸入必要欄位,就離開
 if(empty($_POST['name'])){
 
@@ -18,10 +31,19 @@ if(empty($_POST['name'])){
     exit;
 }
 
+if(!empty($_FILES['images'])){ // 有沒有上傳
+    if(in_array($_FILES['images']['type'], $allowed_types)) { // 檔案類型是否允許
+
+        move_uploaded_file($_FILES['images']['tmp_name'], $upload_dir.$_FILES['images']['name']);
+    }
+}
+
+
+
 
 $sql = "INSERT INTO `attractions_data`(
-     `master_id`, `classification_id`, `name`, `address`, `Business-hours`, `Close-shop`, `price`, `phone`, `information`, `x,y`, `Introduction`
-    ) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+     `master_id`, `classification_id`,`images`, `name`, `address`, `Business-hours`, `Close-shop`, `price`, `phone`, `information`, `x,y`, `Introduction`
+    ) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
 
 // 用$stmt物件 接收pdo物件
 $stmt = $db->prepare($sql);
@@ -30,7 +52,7 @@ $stmt = $db->prepare($sql);
 $stmt->execute([
         $_POST['master_id'],
         $_POST['classification_id'],
-        
+        $_FILES['images']['name'],
         $_POST['name'],
         $_POST['address'],
         $_POST['Business-hours'],
