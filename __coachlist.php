@@ -7,7 +7,7 @@ $page_title = '資料列表';
 
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 
-$per_page = 5; // 每一頁要顯示幾筆
+$per_page = 10; // 每一頁要顯示幾筆
 
 $t_sql = 'SELECT COUNT(1) FROM `mgnt_coach` '; // 拿到總筆數
 
@@ -26,11 +26,11 @@ if ($page > $totalPages) {
     exit;
 }
 
-// $sql = sprintf('SELECT * FROM `mgnt_coach` ORDER BY `sid` DESC LIMIT %s, %s',
-//         ($page - 1) * $per_page,
-//             $per_page
-// );
-$sql = 'SELECT * FROM `mgnt_coach`';
+$sql = sprintf('SELECT * FROM `mgnt_coach` ORDER BY `sid` DESC LIMIT %s, %s',
+        ($page - 1) * $per_page,
+            $per_page
+);
+// $sql = 'SELECT * FROM `mgnt_coach`';
 
 $stmt = $db->query($sql); //1.取資料放進SMPT
 // 自己的php
@@ -41,15 +41,15 @@ $stmt = $db->query($sql); //1.取資料放進SMPT
 <!-- HTML開頭＋link -->
 <?php include 'include/__navbar.php'; ?>
 <!-- 導覽列 bootstrap的code -->
-<link rel="stylesheet" href="fontawesome/css/all.css?">
-<!-- <?php echo rand(0, 6); ?> -->
+
 <!-- <div id="wrapper" style="max-width:1024px;display:flex;"> -->
-<div id="" style="display:flex;">
+<div  style="display:flex;">
 <?php include 'include/__sidebar.php'; ?>
 <!-- 側邊欄 -->
 <!-- <div class="container"> -->
-<div style="margin-top: 2rem;">
-    <!-- <nav aria-label="Page navigation example">
+    
+<div class="container-fluid" style="margin-top: 2rem;">
+    <nav aria-label="Page navigation example">
         <ul class="pagination">
             <li class="page-item">
                 <a class="page-link" href="?page=<?= $page - 1; ?>">
@@ -74,9 +74,11 @@ $stmt = $db->query($sql); //1.取資料放進SMPT
                 </a>
             </li>
         </ul>
-    </nav> -->
+    </nav>
 
-
+    <div class="d-flex justify-content-end ">
+                    <a href="__coachinsert.php" class="page-link" style="color:#aaa"><i class="fas fa-edit" style="color:#aaa; margin:0.1rem;"></i>新增</a>
+                </div>
     <table class="table table-striped table-bordered">
         <thead>
         <tr>
