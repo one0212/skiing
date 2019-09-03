@@ -159,6 +159,9 @@ $page_title = '新增資料';
                         info_bar.innerHTML = json.info;
                         if (json.success) {
                             info_bar.className = 'alert alert-success';
+                            setTimeout(function() {
+                            location=location;
+                            },1000);
                         } else {
                             info_bar.className = 'alert alert-danger';
                         }
