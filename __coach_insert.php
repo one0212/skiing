@@ -18,12 +18,10 @@ session_start();
     <section class="coachsection">
  
         <div class="form">
-        <div class="d-flex justify-content-end ">
-                    <a href="__coach_edit.php" class="page-link" style="color:#aaa"><i class="fas fa-edit" style="color:#aaa; margin:0.1rem;"></i>回編輯</a>
-                </div>
+ 
             <form name="formcoach" onsubmit="return checkForm()">
             <div class="d-flex justify-content-end ">
-                    <a href="__coach_edit.php" class="page-link" style="color:#aaa"><i class="fas fa-edit" style="color:#aaa; margin:0.1rem;"></i>回編輯</a>
+                    <a href="__coach_list.php" class="page-link" style="color:#aaa"><i class="fas fa-edit" style="color:#aaa; margin:0.1rem;"></i>回編輯</a>
                 </div>
                 <div class="form-group">
                     <label for="name">姓名</label>

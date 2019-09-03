@@ -77,7 +77,7 @@ $stmt = $db->query($sql); //1.取資料放進SMPT
     </nav>
 
     <div class="d-flex justify-content-end ">
-                    <a href="__coachinsert.php" class="page-link" style="color:#aaa"><i class="fas fa-edit" style="color:#aaa; margin:0.1rem;"></i>新增</a>
+                    <a href="__coach_insert.php" class="page-link" style="color:#aaa"><i class="fas fa-edit" style="color:#aaa; margin:0.1rem;"></i>新增</a>
                 </div>
     <table class="table table-striped table-bordered">
         <thead>
