@@ -103,8 +103,8 @@ $stmt = $db->query($sql);
             <thead>
                 <tr class="table-active">
                     <th scope="col">流水號</th>
-                    <th scope="col">雪場id</th>
-                    <th scope="col">類型id</th>
+                    <!-- <th scope="col">雪場id</th>
+                    <th scope="col">類型id</th> -->
                     <th scope="col">圖檔位置</th>
                     <th scope="col">名稱</th>
                     <th scope="col">地址</th>
@@ -113,7 +113,7 @@ $stmt = $db->query($sql);
                     <th scope="col">費用</th>
                     <th scope="col">電話</th>
                     <th scope="col">相關資訊</th>
-                    <th scope="col">x,y座標</th>
+                    <!-- <th scope="col">x,y座標</th> -->
                     <th scope="col">景點介紹</th>
                     <th scope="col"><i class="fas fa-trash"></i></th>
                     <th scope="col"><i class="fas fa-pen-square"></i></th>
@@ -125,9 +125,11 @@ $stmt = $db->query($sql);
                 <?php while ($a = $stmt->fetch()) { ?>
                     <tr>
                         <td><?= $a['sid'] ?> </td>
-                        <td><?= $a['master_id'] ?></td>
-                        <td><?= $a['classification_id'] ?></td>
-                        <td><?= $a['images'] ?></td>
+                        
+                        <!-- <td><?= $a['master_id'] ?></td>
+                        <td><?= $a['classification_id'] ?></td> -->
+
+                        <td><img  style="width:100px" alt=""  src="<?= 'uploads/'.htmlentities($a['images']) ?>" ></td>
                         <!-- htmlentities() 資料顯示出來時可以做跳脫的動作 防止別人再新增資料寫入標籤或程式-->
                         <td><?= htmlentities($a['name']) ?></td>
                         <td><?= htmlentities($a['address']) ?></td>
@@ -136,7 +138,7 @@ $stmt = $db->query($sql);
                         <td><?= htmlentities($a['price']) ?></td>
                         <td><?= htmlentities($a['phone']) ?></td>
                         <td><?= htmlentities($a['information']) ?></td>
-                        <td><?= htmlentities($a['x,y']) ?></td>
+                        <!-- <td><?= htmlentities($a['x,y']) ?></td> -->
                         <td><?= htmlentities($a['Introduction']) ?></td>
                         <td><a href="javascript:delete_one(<?= $a['sid'] ?>)"><i class="fas fa-trash"></i></a></td>
                         <td><a href="Attractions_data_edit.php?sid=<?= $a['sid'] ?>"><i class="fas fa-pen-square"></i></a></td>

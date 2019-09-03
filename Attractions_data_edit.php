@@ -86,7 +86,11 @@ if (empty($row)) {
                             <div class="form-group" style="margin-top:10px">
                             <img src="<?= 'uploads/'.htmlentities($row['images']) ?>" height="200" alt="Image preview..." class="img_preview" style="">
                                 <label for="images"></label>
+<<<<<<< Updated upstream
                                 <input type="file" class="form-control-file " id="images" name="images" style="display: none" onchange="myPreviewFile(event)"><br>
+=======
+                                <input type="file" class="form-control-file " id="images" name="images" style="display:none" onchange="myPreviewFile(event)"><br>
+>>>>>>> Stashed changes
                                
                                 <button type="button" class="btn btn-primary" style="margin-top:10px" onclick="selUploadFile(event)">選擇上傳的檔案</button>
                                
