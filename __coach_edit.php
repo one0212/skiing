@@ -46,7 +46,7 @@ if (empty($coachrow)) {
             <div class="col-md-12">
                 <form name="formcoach" onsubmit="return checkForm()">
                     <div class="d-flex justify-content-end ">
-                        <a href="__coach_edit.php" class="page-link" style="color:#aaa"><i class="fas fa-edit" style="color:#aaa; margin:0.1rem;"></i>回編輯</a>
+                        <a href="__coach_list.php" class="page-link" style="color:#aaa"><i class="fas fa-edit" style="color:#aaa; margin:0.1rem;"></i>回編輯</a>
                     </div>
                     <input type="hidden" name="sid" value="<?= $coachrow['sid'] ?>">
                     <div class="form-group">
@@ -204,7 +204,7 @@ if (empty($coachrow)) {
                             // info_bar.innerHTML = json.info;
                             if (json.success) {
                                 alert('修改成功');
-                                parent.location.href = "__coachlist.php";
+                                parent.location.href = "__coach_list.php";
                                 //    alert('修改成功');
                                 //    document.location.href="__coachlist.php";
                             } else {
