@@ -91,7 +91,7 @@ $page_title = '品牌新增';
                         info_bar.innerHTML = json.info;
                         if (json.success) {
                             info_bar.className = 'alert alert-success';
-                            window.location.href="BRAND_DATA.php";
+                            window.location.href="BRAND_DATA2.php";
                         } else {
                             info_bar.className = 'alert alert-danger';
                         }

@@ -6,14 +6,14 @@ $page_title = '品牌編輯';
 
 $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
 if(empty($sid)) {
-    header('Location: BRAND_DATA.php');
+    header('Location: BRAND_DATA2.php');
     exit;
 }
 
 $sql = "SELECT * FROM `BRAND＿DATA` WHERE `sid`=$sid";
 $row = $db->query($sql)->fetch();
 if(empty($row)) {
-    header('Location: BRAND_DATA.php');
+    header('Location: BRAND_DATA2.php');
     exit;
 }
 
@@ -77,7 +77,7 @@ if(empty($row)) {
                                 <small id="aboutHelp" class="form-text"></small>
                             </div>
                             <button type="submit" class="btn btn-primary" id="submit_btn">修改</button>
-                            <button type="" class="btn btn-warning"><a class="text-white" href="BRAND_DATA.php">返回</a></button>
+                            <button type="" class="btn btn-warning"><a class="text-white" href="BRAND_DATA2.php">返回</a></button>
 
                         </form>
                     </div>
@@ -106,7 +106,7 @@ if(empty($row)) {
                         info_bar.innerHTML = json.info;
                         if (json.success) {
                             info_bar.className = 'alert alert-warning';
-                            window.location.href="BRAND_DATA.php";
+                            window.location.href="BRAND_DATA2.php";
                         } else {
                             info_bar.className = 'alert alert-danger';
                         }
