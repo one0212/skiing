@@ -22,6 +22,7 @@ if ($page < 1) {
     exit;
 }
 if ($page > $totalPages) {
+    header('Location: __coachlist.php?page='.$totalPages);
     exit;
 }
 
