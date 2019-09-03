@@ -71,9 +71,8 @@ $page_title = '新增票劵';
                     </div>
                     <br>
                     <div class="form_group">
-                        <label for="">描述</label>
-                        <input type="text" class="form-control" id="description" name="description">
-                        <small id="descriptionHelp" class="form-text"></small>
+                        <label for="" style="margin-bottom:1rem">描述</label><br>
+                        <textarea id="description" name="description" rows="4" cols="87" style="overflow-y:hidden;resize:none;padding:0.7rem 0.8rem;line-height:1.5rem;border: 1px solid #ced4da;border-radius: 0.25rem;"></textarea>
                     </div>
                     <button type="submit" class="submit btn btn-secondary" id="submit_btn">新增票劵</button>
                 </form>
@@ -105,7 +104,7 @@ $page_title = '新增票劵';
             function checkForm() {
                 for (s in required_fields) {
                     item = required_fields[s];
-                    item.el.style.border = '1px solid #000';
+                    item.el.style.border = '1px solid #ced4da';
                     item.infoEl.innerHTML = '';
                 }
 
