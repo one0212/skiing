@@ -18,6 +18,9 @@ session_start();
     <section class="coachsection">
  
         <div class="form">
+        <div class="d-flex justify-content-end ">
+                    <a href="__coach_edit.php" class="page-link" style="color:#aaa"><i class="fas fa-edit" style="color:#aaa; margin:0.1rem;"></i>回編輯</a>
+                </div>
             <form name="formcoach" onsubmit="return checkForm()">
             <div class="d-flex justify-content-end ">
                     <a href="__coach_edit.php" class="page-link" style="color:#aaa"><i class="fas fa-edit" style="color:#aaa; margin:0.1rem;"></i>回編輯</a>
@@ -60,6 +63,7 @@ session_start();
                 <div class="form-group">
                     <label for="">目前雪場</label>
                     <select name="local">
+                    <option value="-------------">------------------------------------------------</option>
                         <option value="札幌國際滑雪場">札幌國際滑雪場</option>
                         <option value="富良野滑雪場">富良野滑雪場</option>
                         <option value="上越國際滑雪場">上越國際滑雪場</option>
