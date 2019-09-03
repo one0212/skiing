@@ -258,7 +258,7 @@ $page_title = '新增雪場';
             function checkForm() {
                 for (s in required_fields) {
                     item = required_fields[s];
-                    item.el.style.border = '1px solid #000';
+                    item.el.style.border = '1px solid #ced4da';
                     item.infoEl.innerHTML = '';
                 }
 
