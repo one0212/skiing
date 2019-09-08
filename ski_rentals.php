@@ -40,68 +40,68 @@ $page_title = '新增裝備租借';
                     </div>
                     <br>
                     <div class="gender1">
-                    <label for="">性別</label><br>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline1" name="gender" class="custom-control-input" value="男">
-                        <label class="custom-control-label" for="customRadioInline1">男</label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline2" name="gender" class="custom-control-input" value="女">
-                        <label class="custom-control-label" for="customRadioInline2">女</label>
-                        <small id="genderHelp" class="form-text"></small>
-                    </div>
+                        <label for="">性別</label><br>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline1" name="gender" class="custom-control-input" value="男" required>
+                            <label class="custom-control-label" for="customRadioInline1">男</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline2" name="gender" class="custom-control-input" value="女" required>
+                            <label class="custom-control-label" for="customRadioInline2">女</label>
+                            <small id="genderHelp" class="form-text"></small>
+                        </div>
                     </div>
                     <br>
                     <div class="type1">
-                    <label for="">類型</label><br>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline3" name="type" class="custom-control-input" value="大人">
-                        <label class="custom-control-label" for="customRadioInline3">大人</label>  
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline4" name="type" class="custom-control-input" value="小孩">
-                        <label class="custom-control-label" for="customRadioInline4">小孩</label>
-                        <small id="typeHelp" class="form-text"></small>
-                    </div>
+                        <label for="">類型</label><br>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline3" name="type" class="custom-control-input" value="大人" required>
+                            <label class="custom-control-label" for="customRadioInline3">大人</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline4" name="type" class="custom-control-input" value="小孩" required>
+                            <label class="custom-control-label" for="customRadioInline4">小孩</label>
+                            <small id="typeHelp" class="form-text"></small>
+                        </div>
                     </div>
                     <br>
                     <div class="size1">
-                    <label for="">尺碼</label><br>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline5" name="size" class="custom-control-input" value="S">
-                        <label class="custom-control-label" for="customRadioInline5">S</label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline6" name="size" class="custom-control-input" value="M">
-                        <label class="custom-control-label" for="customRadioInline6">M</label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline7" name="size" class="custom-control-input" value="L">
-                        <label class="custom-control-label" for="customRadioInline7">L</label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline8" name="size" class="custom-control-input" value="XL">
-                        <label class="custom-control-label" for="customRadioInline8">XL</label>
-                        <small id="sizeHelp" class="form-text"></small>
-                    </div>
+                        <label for="">尺碼</label><br>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline5" name="size" class="custom-control-input" value="S" required>
+                            <label class="custom-control-label" for="customRadioInline5">S</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline6" name="size" class="custom-control-input" value="M" required>
+                            <label class="custom-control-label" for="customRadioInline6">M</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline7" name="size" class="custom-control-input" value="L" required>
+                            <label class="custom-control-label" for="customRadioInline7">L</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline8" name="size" class="custom-control-input" value="XL" required>
+                            <label class="custom-control-label" for="customRadioInline8">XL</label>
+                            <small id="sizeHelp" class="form-text"></small>
+                        </div>
                     </div>
                     <br>
                     <div class="time1">
-                    <label for="">時間</label><br>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline9" name="time" class="custom-control-input" value="兩日">
-                        <label class="custom-control-label" for="customRadioInline9">兩日</label>
-                        <small id="ticketHelp" class="form-text"></small>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline10" name="time" class="custom-control-input" value="一日">
-                        <label class="custom-control-label" for="customRadioInline10">一日</label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline11" name="time" class="custom-control-input" value="半日(5小時)">
-                        <label class="custom-control-label" for="customRadioInline11">半日(5小時)</label>
-                        <small id="timeHelp" class="form-text"></small>
-                    </div>
+                        <label for="">時間</label><br>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline9" name="time" class="custom-control-input" value="兩日" required>
+                            <label class="custom-control-label" for="customRadioInline9">兩日</label>
+                            <small id="ticketHelp" class="form-text"></small>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline10" name="time" class="custom-control-input" value="一日" required>
+                            <label class="custom-control-label" for="customRadioInline10">一日</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline11" name="time" class="custom-control-input" value="半日(5小時)" required>
+                            <label class="custom-control-label" for="customRadioInline11">半日(5小時)</label>
+                            <small id="timeHelp" class="form-text"></small>
+                        </div>
                     </div>
                     <br>
                     <div class="form_group">
@@ -115,13 +115,12 @@ $page_title = '新增裝備租借';
                         <small id="priceHelp" class="form-text"></small>
                     </div>
                     <br>
-                    
+
                     <button type="submit" class="submit btn btn-secondary" id="submit_btn">新增</button>
                 </form>
             </div>
         </div>
         <script>
-
             function selUploadFile(event) {
                 var btn = event.target;
                 var field = btn.closest('.form-group').querySelector('input');
@@ -206,7 +205,7 @@ $page_title = '新增裝備租借';
                             submit_btn.style.display = 'block';
                             if (json.success) {
                                 alert("裝備租借新增成功!");
-                                window.location.href="ski_rentals_list.php";
+                                window.location.href = "ski_rentals_list.php";
                             } else {
                                 alert("裝備租借新增失敗!");
                             }

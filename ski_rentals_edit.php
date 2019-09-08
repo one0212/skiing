@@ -49,8 +49,8 @@ if (empty($row)) {
                     <div class="form-group">
                         <label for="">裝備圖片</label>
                         <input type="file" class="form-control-file" id="image" name="image" style="display: none" onchange="myPreviewFile(event)">
-                        <button type="button" class="btn btn-info" onclick="selUploadFile(event)">選擇上傳的檔案</button>
-                        <img src="" height="200" alt="Image preview..." class="img_preview" style="display: none">
+                        <button type="button" class="btn btn-info" onclick="selUploadFile(event)">選擇上傳的檔案</button><br>
+                        <img src="<?= 'uploads/'.htmlentities($row['image']) ?>" alt="" style="width:150px">
                     </div>
                     <br>
                     <div class="gender1">
