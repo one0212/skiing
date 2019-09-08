@@ -1,0 +1,14 @@
+
+.page_group {
+    margin-bottom: 2rem;
+}
+
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #ccc;
+    border-color: #ccc;
+}
+.icon {
+    color: rgb(130, 130, 130);
+}
