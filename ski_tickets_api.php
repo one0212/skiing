@@ -1,8 +1,6 @@
 <?php
 require("config.php");
 
-$upload_dir = __DIR__. '/uploads/';
-
 $sql = "INSERT INTO `MGNT_SKI_TICKETS`(
     `name`, `rate`,`type`, `ticket`, `description`
     ) VALUES (?, ?, ?, ?, ?)";
