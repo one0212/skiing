@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="/Users/wanji0212/skiing/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/all.css">
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            box-sizing: border-box;
+        }
+        /* =========================================== */
+        .side-bar {
+            top: 0;
+            left: 0;
+            bottom: 0;
+            background: rgb(255, 221, 221);
+            /* padding: 3px; */
+        }
+        .side-bar li:hover {
+            background: rgba(224, 190, 190, 0.8);
+            /* color: #333; */
+        }
+
+        .side-bar li:hover a {
+            color: #000;
+        }
+
+        .side-bar a {
+            text-decoration: none;
+            display: block;
+            color: #555;
+            font-size: 16px;
+            display: inline;
+        }
+        .submenu {
+            background: rgba(224, 190, 190, 0.8);
+            color: #333;
+            opacity: 0;
+            overflow: hidden;
+            transition: .5s;
+            max-height: 0;
+        }
+
+        .submenu li a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+            padding: 10px 10px;
+        }
+
+        .submenu li:hover a {
+            background: rgb(223, 188, 188);
+        }
+        .submenu.active {
+            opacity: 1;
+            max-height: 300px;
+        }
+        .menu {
+            flex-direction: column;
+        }
+
+        /* =========================================== */
+        .skigo {
+            /* color: #000; */
+            max-width: 250px;
+            max-height: 250px;
+            text-align: center;
+            padding: 20px 0r;
+        }
+        
+        i {
+            padding-right: 60px;
+            font-size: 20px;
+            width: 30px;
+            height: 30px;
+            /* vertical-align: middle; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-3 col-sm-3 col-m-4 position-fixed side-bar">
+                <div class="py-5">
+                    <div class="d-flex justify-content-center">
+                        <img class="skigo" src="images/skigo-logo.svg" alt="">
+                    </div>
+                    <ul class="menu text-center ">
+                        <li class="py-3 sidebar-item"><i class="far fa-building"></i>
+                            <a href="#">
+                                廠商管理
+                            </a>
+                        </li>
+                        <li class="py-3 sidebar-item"><i class="fas fa-user-friends"></i>
+                            <a href="#">
+                                會員管理
+                            </a>
+                        </li>
+                        <li class="py-3 sidebar-item"><i class="fas fa-snowboarding"></i>
+                            <a href="#">
+                                雪場管理
+                            </a>
+                        </li>
+                        <div class="group">
+                            <li class="py-3 sidebar-item"><i class="fas fa-home"></i>
+                                <a href="#">
+                                    飯店管理
+                                </a>
+                            </li>
+                            <ul class="submenu">
+                                <li><a class="py-3 sidebar-item" href="#">基本資料</a></li>
+                                <li><a class="py-3 sidebar-item" href="#">房型管理</a></li>
+                            </ul>
+                        </div>
+                        <li class="py-3 sidebar-item"><i class="fas fa-map-marker-alt"></i>
+                            <a href="#">
+                                景點管理
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script> -->
+    <script src="/Users/wanji0212/skiing/bootstrap/js/bootstrap.min.js"></script>
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script> -->
+    <script>
+        $("html").click(function () {
+            $(".submenu").removeClass("active");
+        });
+        $(".group").click(function (e) {
+            e.stopPropagation();
+            $(this).find(".submenu").toggleClass("active");
+            $(".submenu a").css("background", "transparent")
+        })
+    </script>
+</body>
+
+</html>
