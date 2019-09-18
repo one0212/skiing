@@ -12,7 +12,7 @@
 
 <aside id="sidebar">
         <div class="sidebar-header">
-            <a href=""><img class="svg-logo" src="../images/skigo-logo.svg" alt="logo"></a>
+            <a href=""><img class="svg-logo" src="images/skigo-logo.svg" alt="logo"></a>
         </div>
         <ul>
             <li>
