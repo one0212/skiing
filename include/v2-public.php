@@ -1,4 +1,4 @@
-<?php require("../config.php"); 
+<?php require("config.php"); 
 // 連線資料
 
 
@@ -7,11 +7,11 @@
 
 ?>
 
-<?php include("v2-head.php"); ?>
+<?php include("include/v2-head.php"); ?>
 <!-- HTML開頭＋link -->
 
 
-<?php include("v2-sidebar.php"); ?>
+<?php include("include/v2-sidebar.php"); ?>
 <!-- 側邊欄 -->
 
 
@@ -20,4 +20,4 @@
 
 
 
-<?php include("v2-footer.php"); ?>
+<?php include("include/v2-footer.php"); ?>

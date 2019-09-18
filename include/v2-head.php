@@ -14,8 +14,8 @@
     <!-- <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC|Noto+Serif+TC|Roboto:400,700&display=swap"
         rel="stylesheet"> -->
     <!-- fontawesome-->
-    <link rel="stylesheet" href="../CSS/all.css">
+    <link rel="stylesheet" href="CSS/all.css">
     <!-- other -->
-    <link rel="stylesheet" href="../CSS/sidebar-v2.css">
+    <link rel="stylesheet" href="CSS/sidebar-v2.css">
 </head>
 <body>
