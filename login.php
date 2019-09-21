@@ -10,7 +10,7 @@ if (isset($_SESSION['bid'])) {
 
     $account = $_POST['account'];
     $password = $_POST['password'];   
-    $sql = "SELECT bid, account FROM MGNT_ADMIN WHERE account = '$account' AND password = '$password'";
+    $sql = "SELECT bid, account FROM MGNT_ADMIN WHERE account = '$account' AND password = '$password' and status = 'enable'";
     $result = $db->query($sql)->fetch();
     
     if (empty($result)) {

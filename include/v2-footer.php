@@ -8,9 +8,13 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <script>
-        function toggleSildebar() {
-            document.getElementById("sidebar").classList.toggle('active');
-
+        $(".hotel-click").click(function(){
+            $(".active").toggleClass("collapse");
+        })
+    </script>
+    <script>
+        function toggleSildebar(){
+            document.getElementById("#sidebar").classList.toggle('active');
         }
     </script>
 </body>
