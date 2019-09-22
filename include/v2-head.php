@@ -17,5 +17,9 @@
     <link rel="stylesheet" href="css/all.css">
     <!-- other -->
     <link rel="stylesheet" href="css/sidebar-v2.css">
+    <!-- JQuery UI -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- sweetalert2 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.10.3/sweetalert2.css" />
 </head>
 <body>
