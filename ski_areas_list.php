@@ -9,7 +9,7 @@ $page_title = '雪場資料列表';
 
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1; //用戶要看第幾頁
 
-$per_page = 1; // 每一頁要顯示幾筆
+$per_page = 5; // 每一頁要顯示幾筆
 
 $t_sql = "SELECT COUNT(1) FROM `MGNT_SKI_AREAS` ";
 
@@ -38,200 +38,46 @@ $stmt = $db->query($sql);
 //$rows = $stmt->fetchAll();
 ?>
 
-<?php include("include/__head.php"); ?>
+<?php include("include/v2-head.php"); ?>
 <!-- HTML開頭＋link -->
-<?php include("include/__navbar.php"); ?>
+
 <!-- 導覽列 bootstrap的code -->
 
 <div style="display:flex;">
-    <?php include("include/__sidebar.php"); ?>
+    <?php include("include/v2-sidebar.php"); ?>
     <!-- 側邊欄 -->
 
     <!-- 自己的html,css   code放這邊 -->
-    <link rel="stylesheet" href="css/ski_areas_list.css">
+    <link rel="stylesheet" href="CSS/ski_areas_list.css">
     <div class="container">
         <div style="margin-top: 2rem;">
-            <div class="d-flex justify-content-between page_group">
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <a class="page-link" href="?page=<?= $page - 1 ?>" style="color:#aaa">
-                                <i class="fas fa-chevron-left"></i>
-                            </a>
-                        </li>
-                        <?php
-                        $p_start = $page - 5;
-                        $p_end = $page + 5;
-                        for ($i = $p_start; $i <= $p_end; $i++) :
-                            if ($i < 1 or $i > $totalPages) continue; //跳出此次for迴圈,進入下一個for迴圈
-                            ?>
-                            <li class="page-item <?= $i == $page ? 'active' : '' ?>">
-                                <a class="page-link number" href="?page=<?= $i ?>" style="color:gray"><?= $i ?></a>
-                            </li>
-                        <?php endfor; ?>
-                        <li class="page-item">
-                            <a class="page-link" href="?page=<?= $page + 1 ?>">
-                                <i class="fas fa-chevron-right" style="color:#aaa"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <div class="d-flex">
-                    <?php while ($r = $stmt->fetch()) {  ?>
-                        <a href="javascript:delete_one(<?= $r['sid'] ?>)" class="page-link" style="color:#aaa"><i class="far fa-trash-alt" style="color:#aaa; margin:0.1rem;"></i>刪除</a>
-                        <a href="ski_areas_edit.php?sid=<?= $r['sid'] ?>" class="page-link" style="color:#aaa; margin-left:0.5rem;"><i class="fas fa-edit" style="color:#aaa; margin:0.1rem;"></i>編輯</a>
-                    
-                    <a href="ski_areas.php" class="page-link" style="color:#aaa; margin-left:0.5rem;"><i class="fas fa-plus-circle" style="color:#aaa; margin:0.1rem;"></i></i>創建</a>
-                </div>
-            </div>
-            <table class="table table-striped table-bordered table_1">
-
-
-                
+            <div class="d-flex justify-content-between page_group"></div>
+            <a href="ski_areas.php" class="page-link" style="color:#aaa;background:#212529;text-align:center;border:2.5px dotted;padding:1rem 0;"><i class="fas fa-plus-circle" style="color:#aaa; margin:0.1rem;"></i></i>創建</a>
+            <table class="table table-striped table-bordered table_1" style="color:#fff;border-right-style:none;border-left-style:none;margin-top:1rem;">
+               
+                <?php while ($r = $stmt->fetch()) {  ?>
                     <tr>
-                        <th scope="col"><i class="fas fa-hashtag"></i></th>
+                        <td style="text-align: center;padding-top:3.7rem;border-right-style:none;border-left-style:none;"><a href="ski_areas_edit.php?sid=<?= $r['sid'] ?>" class="page-link" style="color:#fff;width:40px;
+                        height:39px;border-radius:50%;background:#212529;"><i class="fas fa-edit" style="color:#fff;"></i></a></td>
+                        <td style="text-align: center;padding-top:4.2rem;border-right-style:none;border-left-style:none;"><?= $r['sid'] ?></td>
+                        <td style="text-align: center;padding-top:4.2rem;border-right-style:none;border-left-style:none;"><?= htmlentities($r['name']) ?></td>
+                        <td style="text-align: center;padding-top:4.2rem;border-right-style:none;border-left-style:none;"><?= htmlentities($r['country']) ?></td>
+                        <td style="text-align: center;padding-top:4.2rem;border-right-style:none;border-left-style:none;"><?= htmlentities($r['address']) ?></td>
+                        <td style="border-right-style:none;border-left-style:none;"><img src="<?= 'uploads/' . htmlentities($r['ski_image']) ?>" alt="" style="width:150px"></td>
+                        <td style="border-right-style:none;border-left-style:none;padding-top:3.7rem;"><a href="javascript:delete_one(<?= $r['sid'] ?>)" class="page-link" style="color:#fff;width:40px;
+                        height:39px;border-radius:50%;background:#212529;"><i class="far fa-trash-alt" style="color:#fff;"></i></a></td>
                     </tr>
-                    <tr>
-                        <td><?= $r['sid'] ?></td>
-                    </tr>
-                    <tr>
-                        <th scope="col">名稱</th>
-                    </tr>
-                    <tr>
-                        <td><?= htmlentities($r['name']) ?></td>
-                    </tr>
-                    <tr>
-                        <th scope="col">國家</th>
-                    </tr>
-                    <tr>
-                        <td><?= htmlentities($r['country']) ?></td>
-                    </tr>
-                    <tr>
-                        <th scope="col">地址</th>
-                    </tr>
-                    <tr>
-                        <td><?= htmlentities($r['address']) ?></td>
-                    </tr>
-                    <tr>
-                        <th scope="col">描述</th>
-                    </tr>
-                    <tr>
-                        <td><?= htmlentities($r['description']) ?></td>
-                    </tr>
-                    <tr>
-                        <th scope="col">營運期間</th>
-                    </tr>
-                    <tr>
-                        <td><?= htmlentities($r['skiing_season']) ?></td>
-                    </tr>
-                    <tr>
-                        <th scope="col">營業時間</th>
-                    </tr>
-                    <tr>
-                        <td><?= htmlentities($r['business_hours']) ?></td>
-                    </tr>
-                    <tr>
-                        <th scope="col">雪場圖片</th>
-                    </tr>
-                    <tr>
-                        <td><img src="<?= 'uploads/'.htmlentities($r['ski_image']) ?>" alt="" style="width:150px"><p class="p_img"><?= htmlentities($r['ski_image']) ?></p></td>
-                    </tr>
-                    <tr>
-                        <th scope="col">面積</th>
-                    </tr>
-                    <tr>
-                        <td><?= htmlentities($r['acreage']) ?></td>
-                    </tr>
-                    <tr>
-                        <th scope="col">雪道數量</th>
-                    </tr>
-                    <tr>
-                        <td><?= htmlentities($r['number_of_courses']) ?></td>
-                    </tr>
-                    <tr>
-                        <th scope="col">最長滑行距離</th>
-                    </tr>
-                    <tr>
-                        <td><?= htmlentities($r['longest_run']) ?></td>
-                    </tr>
-                    <tr>
-                        <th scope="col">最大斜度</th>
-                    </tr>
-                    <tr>
-                        <td><?= htmlentities($r['slop_gradient']) ?></td>
-                    </tr>
-                    <tr>
-                        <th scope="col">標高差</th>
-                    </tr>
-                    <tr>
-                        <td><?= htmlentities($r['vertical_drop']) ?></td>
-                    </tr>
-                    <tr>
-                        <th scope="col">雪場地圖</th>
-                    </tr>
-                    <tr>
-                        <td><img src="<?= 'uploads/'.htmlentities($r['ski_map']) ?>" alt="" style="width:150px"><p class="p_img"><?= htmlentities($r['ski_map']) ?></p></td>
-                    </tr>
-                    <tr>
-                        <th scope="col">門票</th>
-                    </tr>
-                    <tr>
-                        <td><?= htmlentities($r['tickets']) ?></td>
-                    </tr>
-                    <tr>
-                        <th scope="col">租借</th>
-                    </tr>
-                    <tr>
-                        <td><?= htmlentities($r['rentals']) ?></td>
-                    </tr>
-                    <tr>
-                        <th scope="col">課程</th>
-                    </tr>
-                    <tr>
-                        <td><?= htmlentities($r['lessons']) ?></td>
-                    </tr>
-                    <tr>
-                        <th scope="col">飯店</th>
-                    </tr>
-                    <tr>
-                        <td><?= htmlentities($r['hostel']) ?></td>
-                    </tr>
-                    <tr>
-                        <th scope="col">飯店圖片</th>
-                    </tr>
-                    <tr>
-                        <td><img src="<?= 'uploads/'.htmlentities($r['hostel_image']) ?>" alt="" style="width:150px"><p class="p_img"><?= htmlentities($r['hostel_image']) ?></p></td>
-                    </tr>
-                    <tr>
-                        <th scope="col">汽車</th>
-                    </tr>
-                    <tr>
-                        <td><?= htmlentities($r['access_car']) ?></td>
-                    </tr>
-                    <tr>
-                        <th scope="col">搭乘電車</th>
-                    </tr>
-                    <tr>
-                        <td><?= htmlentities($r['access_bus']) ?></td>
-                    </tr>
-                    <tr>
-                        <th scope="col">高速巴士</th>
-                    </tr>
-                    <tr>
-                        <td><?= htmlentities($r['access_train']) ?></td>
-                    </tr>
-
                 <?php } ?>
 
             </table>
         </div>
         <script>
-        function delete_one(sid) {
-            if(confirm(`確定要刪除編號為 ${sid} 的資料嗎?`)){
-                location.href = 'ski_areas_delete.php?sid=' + sid;
+            function delete_one(sid) {
+                if (confirm(`確定要刪除編號為 ${sid} 的資料嗎?`)) {
+                    location.href = 'ski_areas_delete.php?sid=' + sid;
+                }
             }
-        }
-    </script>
+        </script>
     </div>
 </div>
-<?php include("include/__footer.php"); ?>
+<?php include("include/v2-footer.php"); ?>
