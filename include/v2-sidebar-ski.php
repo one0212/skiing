@@ -122,10 +122,10 @@ if($bid == "MAVL"):?>
 <?php endif; ?>
 <!------------------ admin ------------------->
 
-<nav class="navbar bg-secondary">
+<nav class="navbar">
     <a class="navbar-brand" href="#">Navbar</a>
-
-    <ul class="nav justify-content-end">
+    <div class="container d-flex justify-content-end">
+    <ul class="nav">
         <?php if (isset($_SESSION['account'])) : ?>
             <li class="nav-item">
                 <a class="nav-link"><?= "Hello !  " . $_SESSION['account'] ?>
@@ -133,14 +133,14 @@ if($bid == "MAVL"):?>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="logout.php">登出</a>
+            <a class="nav-link btn btn-secondary" href="logout.php">登出</a>
             </li>
         <?php else : ?>
-            <li class="nav-item">
-                <a class="nav-link" href="login.php">登入</a>
+            <li class="nav-item ">
+               <a class="nav-link btn btn-secondary" href="login.php">登入</a>
             </li>
         <?php endif ?>
         <!-- <li><img src="" alt=""></li> -->
     </ul>
-
+</div>
 </nav>
