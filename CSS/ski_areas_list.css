@@ -3,13 +3,4 @@
     margin-bottom: 2rem;
 }
 
-.page-item.active .page-link {
-    z-index: 1;
-    color: #fff;
-    background-color: #ccc;
-    border-color: #ccc;
-}
 
-.table_1 th {
-    font-weight: 600;
-}
