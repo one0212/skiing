@@ -37,12 +37,12 @@ $stmt = $db->query($sql); //1.取資料放進SMPT
 
 <?php include 'include/v2-head.php'; ?>
 <!-- HTML開頭＋link -->
-<!-- <?php include 'include/__navbar.php'; ?> -->
+
 <!-- 導覽列 bootstrap的code -->
 
 <!-- <div id="wrapper" style="max-width:1024px;display:flex;"> -->
-<div style="display:flex;">
-    <?php include 'include/v2-sidebar.php'; ?>
+<!-- <div style="display:flex;"> -->
+    <?php include 'include/v2-sidebar-ski.php'; ?>
     <!-- 側邊欄 -->
     <!-- <div class="container"> -->
     <div class="container" >

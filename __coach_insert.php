@@ -10,9 +10,9 @@ session_start();
 
 <!-- 導覽列 bootstrap的code -->
 
+<?php include 'include/v2-sidebar-ski.php'; ?>
+<div class="container" >
 <!-- <div id="wrapper" style="max-width:1024px;display:flex;"> -->
-<div class="container" style="display:flex;">
-    <?php include 'include/v2-sidebar-ski.php'; ?>
     <!-- 側邊欄 -->
     <section class="coachsection">
  
