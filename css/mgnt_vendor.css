@@ -1,4 +1,4 @@
-/* .main {
+.main {
     position:relative;
 }
 #info_bar {
@@ -11,7 +11,7 @@
     top:15px;
     vertical-align: center;
     line-height:5%;
-} */
+}
 /* .mgnt_status {
     margin-top: 50px;
 } */

@@ -17,7 +17,10 @@ $bid = $_SESSION['bid'];
 if ($bid == "XXXX") {
     $admin = array(
         '/skiing/vendor/vendor_status_api.php',
-        '/skiing/mgnt_vendor.php'
+        '/skiing/mgnt_vendor.php',
+        '/skiing/mgnt_vendor.php?status=enable',
+        '/skiing/mgnt_vendor.php?status=disable',
+        '/skiing/mgnt_vendor.php?status=',
     );
 
     $request_uri = $_SERVER['REQUEST_URI'];
