@@ -139,6 +139,8 @@ $tickets_stmt = $db->query($sql);
             if(confirm(`確定要刪除編號為 ${sid} 的資料嗎?`)){
                 location.href = 'ski_tickets_delete.php?sid=' + sid;
             }
+            location.href = 'ski_tickets_delete.php?sid=' + sid;
+
         }
         function delAll() {
            let sid = [];
@@ -148,10 +150,19 @@ $tickets_stmt = $db->query($sql);
                }
            });
            if(!sid.length) {
-                alert('沒有選擇任何資料');
+                swal.setDefaults({
+                confirmButtonText: "確定",
+                confirmButtonColor: 'gray',
+                cancelButtonColor: '#D3D3D3',
+                showCloseButton: "true",
+                allowOutsideClick: "true"
+            });  
+            swal("沒有選擇任何資料!",
+                    "",
+                    "warning");
            }else{
-                alert('確認刪除資料?');
-                location.href = 'ski_tickets_delAll.php?sid=' + sid.toString();
+            alert("確認刪除資料?");
+            location.href = 'ski_tickets_delAll.php?sid=' + sid.toString();
           
            }
            

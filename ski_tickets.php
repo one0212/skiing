@@ -72,7 +72,7 @@ $page_title = '新增票劵';
                     <small id="typeHelp" class="form-text"></small>
                 </div>
             </div>
-            
+
             <div class="form_group">
                 <label for="" style="margin-bottom:1rem">描述</label><br>
                 <textarea class="form-control" id="description" name="description" rows="4" cols="87" style="overflow-y:hidden;resize:none;padding:0.7rem 0.8rem;line-height:1.5rem;border: 1px solid #ced4da;border-radius: 0.25rem;"></textarea>
@@ -80,76 +80,89 @@ $page_title = '新增票劵';
             <button type="submit" class="submit btn btn-outline-light" id="submit_btn">新增票劵</button>
         </form>
 
-        <script>
-            const submit_btn = document.querySelector('#submit_btn');
-            let i, s, item;
-            const required_fields = [{
-                    id: 'name',
-                    pattern: /.+/,
-                    info: '這是必填項目!'
-                },
-                {
-                    id: 'rate',
-                    pattern: /.+/,
-                    info: '這是必填項目!'
-                },
-            ];
 
-            // 拿到對應的 input element (el), 顯示訊息的 small element (infoEl)
-            for (s in required_fields) {
-                item = required_fields[s];
-                item.el = document.querySelector('#' + item.id);
-                item.infoEl = document.querySelector('#' + item.id + 'Help');
-            }
-
-            // 先讓所有欄位外觀回復到原本的狀態
-            function checkForm() {
-                for (s in required_fields) {
-                    item = required_fields[s];
-                    item.el.style.border = '1px solid #ced4da';
-                    item.infoEl.innerHTML = '';
-                }
-
-                // 檢查必填欄位, 欄位值的格式
-                let isPass = true;
-
-                for (s in required_fields) {
-                    item = required_fields[s];
-                    if (!item.pattern.test(item.el.value)) {
-                        item.el.style.border = '1px solid red';
-                        item.infoEl.innerHTML = item.info;
-                        isPass = false;
-                    }
-                }
-
-                let fd = new FormData(document.form1);
-
-                if (isPass) {
-                    fetch('ski_tickets_api.php', {
-                            method: 'POST',
-                            body: fd,
-                        })
-                        .then(response => {
-                            return response.json(); //拿裡面的內容轉換成json
-                        })
-                        .then(json => {
-                            console.log(json);
-                            submit_btn.style.display = 'block';
-                            if (json.success) {
-                                alert("票劵新增成功!");
-                                window.location.href = "ski_tickets_list.php";
-                            } else {
-                                alert("票劵新增失敗!");
-                            }
-                        });
-                } else {
-                    submit_btn.style.display = 'block';
-                }
-                return false; // 表單不用傳統的 post 方式送出
-
-            }
-        </script>
 
     </div>
 </div>
 <?php include("include/v2-footer.php"); ?>
+<!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> -->
+<script>
+    const submit_btn = document.querySelector('#submit_btn');
+    let i, s, item;
+    const required_fields = [{
+            id: 'name',
+            pattern: /.+/,
+            info: '這是必填項目!'
+        },
+        {
+            id: 'rate',
+            pattern: /.+/,
+            info: '這是必填項目!'
+        },
+    ];
+
+    // 拿到對應的 input element (el), 顯示訊息的 small element (infoEl)
+    for (s in required_fields) {
+        item = required_fields[s];
+        item.el = document.querySelector('#' + item.id);
+        item.infoEl = document.querySelector('#' + item.id + 'Help');
+    }
+
+    // 先讓所有欄位外觀回復到原本的狀態
+    function checkForm() {
+        for (s in required_fields) {
+            item = required_fields[s];
+            item.el.style.border = '1px solid #ced4da';
+            item.infoEl.innerHTML = '';
+        }
+
+        // 檢查必填欄位, 欄位值的格式
+        let isPass = true;
+
+        for (s in required_fields) {
+            item = required_fields[s];
+            if (!item.pattern.test(item.el.value)) {
+                item.el.style.border = '1px solid red';
+                item.infoEl.innerHTML = item.info;
+                isPass = false;
+            }
+        }
+
+        let fd = new FormData(document.form1);
+
+        if (isPass) {
+            fetch('ski_tickets_api.php', {
+                    method: 'POST',
+                    body: fd,
+                })
+                .then(response => {
+                    return response.json(); //拿裡面的內容轉換成json
+                })
+                .then(json => {
+                    console.log(json);
+                    submit_btn.style.display = 'block';
+                    if (json.success) {
+                        // swal.resetDefaults();
+                       
+                        swal.setDefaults({
+                            confirmButtonText: "確定",
+                            confirmButtonColor: 'gray',
+                            cancelButtonColor: '#D3D3D3',
+                            showCloseButton: "true",
+                            allowOutsideClick: "true"
+                        });
+                        swal("新增成功!",
+                            "",
+                            "success")
+                        // window.location.href = "ski_tickets_list.php";
+                    } else {
+                        alert("票劵新增失敗!");
+                    }
+                });
+        } else {
+            submit_btn.style.display = 'block';
+        }
+        return false; // 表單不用傳統的 post 方式送出
+
+    }
+</script>
