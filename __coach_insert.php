@@ -5,15 +5,14 @@ session_start();
 
 ?>
 
-<?php include 'include/__head.php'; ?>
+<?php include 'include/v2-head.php'; ?>
 <!-- HTML開頭＋link -->
 
-
-<?php include 'include/__navbar.php'; ?>
 <!-- 導覽列 bootstrap的code -->
-<link rel="stylesheet" href="css/coachcss.css?115">
-<div class="container-fluid" style="display:flex;">
-    <?php include 'include/__sidebar.php'; ?>
+
+<!-- <div id="wrapper" style="max-width:1024px;display:flex;"> -->
+<div class="container" style="display:flex;">
+    <?php include 'include/v2-sidebar-ski.php'; ?>
     <!-- 側邊欄 -->
     <section class="coachsection">
  
@@ -189,4 +188,4 @@ session_start();
 
 
 </div>
-<?php include 'include/__footer.php'; ?>
+<?php include 'include/v2-footer.php'; ?>

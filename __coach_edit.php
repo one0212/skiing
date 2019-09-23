@@ -20,13 +20,17 @@ if (empty($coachrow)) {
 
 ?>
 
-<?php include("include/__head.php"); ?>
+<?php include 'include/v2-head.php'; ?>
 <!-- HTML開頭＋link -->
-<?php include("include/__navbar.php"); ?>
+
 <!-- 導覽列 bootstrap的code -->
 
-<div id="wrapper" style="max-width:1024px;display:flex;">
-    <?php include("include/__sidebar.php"); ?>
+<!-- <div id="wrapper" style="max-width:1024px;display:flex;"> -->
+   
+<!-- 導覽列 bootstrap的code -->
+
+<div id="container" style="max-width:1024px;display:flex;">
+<?php include 'include/v2-sidebar-ski.php'; ?>
     <!-- 側邊欄 -->
     <style>
         small.form-text {
