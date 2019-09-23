@@ -28,7 +28,7 @@ if(empty($row)) {
 <!-- 導覽列 bootstrap的code -->
 
 <div>
-<?php include("include/v2-sidebar.php"); ?>
+<?php include("include/v2-sidebar-ski.php"); ?>
     <!-- 側邊欄 -->
 
 
