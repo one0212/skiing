@@ -27,6 +27,7 @@ if ($page < 1) {
     exit;
 }
 
+
 // 如果頁數超過總頁數 就會回到最後一頁 
 if ($page > $totalPages) {
     header('Location:Attractions.php?page=' . $totalPages);
@@ -34,12 +35,18 @@ if ($page > $totalPages) {
 }
 
 // 顯示出 ($page-1)*$per_page第幾頁要出現  $per_page出現做多幾筆資料  DESC升冪 ASC降冪
+// $sql = sprintf(
+//     "SELECT * FROM `attractions_data` ORDER BY `sid` ASC LIMIT %s, %s",
+//     // ($page-1)*$per_page算出來索引
+//     ($page - 1) * $per_page,
+//     $per_page
+// );
+
+
 $sql = sprintf(
-    "SELECT * FROM `attractions_data` ORDER BY `sid` ASC LIMIT %s, %s",
-    // ($page-1)*$per_page算出來索引
-    ($page - 1) * $per_page,
-    $per_page
-);
+    "SELECT * FROM `attractions_data` ORDER BY `sid` ASC");
+
+
 $stmt = $db->query($sql);
 // 拿出所有資料fetchAll() 以陣列方式呈現
 // $rows = $stmt->fetchAll();
@@ -51,55 +58,57 @@ $stmt = $db->query($sql);
 <title><?= isset($page_title) ? $page_title : '景點管理' ?></title>
 
 
-<?php include("include/__head.php"); ?>
+<?php include("include/v2-head.php"); ?>
+
+
 <!-- HTML開頭＋link -->
-<link rel="stylesheet" href="fontawesome/css/all.css">
-<?php include("include/__navbar.php"); ?>
+<!-- <link rel="stylesheet" href="fontawesome/css/all.css"> -->
+
 <!-- 導覽列 bootstrap的code -->
 
 
 <div style="display:flex;">
 
 
-    <?php include("include/__sidebar.php"); ?>
+    <?php include("include/v2-sidebar.php"); ?>
     <!-- 側邊欄 -->
 
+    
 
-
-    <div class="container-fliud">
+    <div class="container-fluid" style="margin-left:90px">
 
         <div class="d-flex justify-content-between align-items-center" style="margin-top:100px">
             <div>
-                <nav aria-label="Page navigation example" >
+                <!-- <nav aria-label="Page navigation example" >
                     <ul class="pagination">
 
                         <li class="page-item ">
                             <a class="page-link" href="?page=<?= $page - 1 ?>"><i class="fas fa-caret-left"></i></a>
-                        <li>
+                        <li> -->
                             <!-- 用for迴圈來寫頁籤 -->
-                            <?php for ($i = 1; $i <= $totalPages; $i++) : ?>
+                            <!-- <?php for ($i = 1; $i <= $totalPages; $i++) : ?>
                         <li class="page-item <?= $i == $page ? 'active' : '' ?>">
                             <a  class="page-link" style="line-height: 1"  href="?page=<?= $i ?>"><?= $i ?></a>
                         <li>
-                        <?php endfor; ?>
+                        <?php endfor; ?> -->
 
 
-                        <li class="page-item ">
+                        <!-- <li class="page-item ">
                             <a class="page-link" href="?page=<?= $page + 1 ?>"><i class="fas fa-caret-right"></i></a>
                         <li>
                     </ul>
-                </nav>
+                </nav> -->
             </div>
 
-
+            <!-- <i class="fas fa-edit" style="color:#aaa; margin:0.1rem;"> -->
             <div>
-                    <a style="padding-top:1px" href="Attractions_add_data.php"><i class="fas fa-folder-plus">新增資料</i></a>
+                    <a style="padding-top:1px" href="Attractions_add_data.php"><i class="fas fa-folder-plus"  margin-bottom :5px">新增資料</i></a>
             </div>
         </div>
 
 
 
-        <table class="table  table-dark">
+        <table id="datatable" class="table table-striped table-bordered" style="background:#fff">
             <thead>
                 <tr class="table-active">
                     <th scope="col">流水號</th>
@@ -150,6 +159,12 @@ $stmt = $db->query($sql);
 
 
     </div>
+     <!-- jQuery v1.9.1 -->
+  <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <!-- DataTables v1.10.16 -->
+  
+  <link href="CSS/attractions_datatable.css" rel="stylesheet" />
+  <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script>
         function delete_one(sid) {
             if (confirm(`確定要刪除編號為 ${sid} 的資料嗎?`)) {
@@ -157,8 +172,26 @@ $stmt = $db->query($sql);
             }
 
         }
+        
+        $( "#datatable").DataTable({
+            // "dom":'<"top"pl>t<"bottom"fir><"clear">',
+            
+            "language":{
+            "zeroRecords":"抱歉,沒有檢索到資料",
+            "search":"搜尋",
+            "lengthMenu":'每頁顯示_MENU_條記錄',
+            "info":'顯示第_START_到第_END_條記錄，共_TOTAL_條',
+            "paginate":{'next':'下一頁','previous':'上一頁'},
+            }
+            // "columnDefs":[{
+            //     "targets":[0][1],
+            //     "searchable":false,
+            // }]
+            
+            
+            });
     </script>
 
 
 </div>
-<?php include("include/__footer.php"); ?>
+<?php include("include/v2-footer.php"); ?>

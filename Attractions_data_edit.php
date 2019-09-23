@@ -25,11 +25,11 @@ if (empty($row)) {
 }
 ?>
 <link rel="stylesheet" href="fontawesome/css/all.css">
-<?php include("include/__head.php"); ?>
-<?php include("include/__navbar.php"); ?>
+<?php include("include/v2-head.php"); ?>
+
 <!-- 導覽列 bootstrap的code -->
 <div id="" style="display:flex;">
-    <?php include("include/__sidebar.php"); ?>
+    <?php include("include/v2-sidebar.php"); ?>
     <!-- 側邊欄 -->
 
     <div class="container" style="margin-top:50px">
@@ -84,13 +84,9 @@ if (empty($row)) {
 
 
                             <div class="form-group" style="margin-top:10px">
-                            <img src="<?= 'uploads/'.htmlentities($row['images']) ?>" height="200" alt="Image preview..." class="img_preview" style="">
+                            <img src="<?= 'uploads/'.htmlentities($row['images']) ?>" height="200" alt="Image preview..." class="img_preview" style="display:none">
                                 <label for="images"></label>
-<<<<<<< Updated upstream
                                 <input type="file" class="form-control-file " id="images" name="images" style="display: none" onchange="myPreviewFile(event)"><br>
-=======
-                                <input type="file" class="form-control-file " id="images" name="images" style="display:none" onchange="myPreviewFile(event)"><br>
->>>>>>> Stashed changes
                                
                                 <button type="button" class="btn btn-primary" style="margin-top:10px" onclick="selUploadFile(event)">選擇上傳的檔案</button>
                                
@@ -229,4 +225,4 @@ if (empty($row)) {
 
 
 </div>
-<?php include("include/__footer.php"); ?>
+<?php include("include/v2-footer.php"); ?>
