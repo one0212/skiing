@@ -22,13 +22,13 @@ if (empty($row)) {
 
 ?>
 
-<?php include("include/__head.php"); ?>
+<?php include("include/v2-head.php"); ?>
 <!-- HTML開頭＋link -->
-<?php include("include/__navbar.php"); ?>
+
 <!-- 導覽列 bootstrap的code -->
 
 <div style="display:flex;">
-    <?php include("include/__sidebar.php"); ?>
+<?php include("include/v2-sidebar.php"); ?>
     <!-- 側邊欄 -->
 
 
@@ -36,16 +36,23 @@ if (empty($row)) {
     <!-- 自己的html,css   code放這邊 -->
     <link rel="stylesheet" href="css/ski_areas.css">
     <div class="container">
-        <a href="ski_tickets_list.php" class="page-link" style="color:#aaa; margin-top:1.3rem; margin-left:2rem; width:9.3rem;"><i class="fas fa-undo-alt" style="color:#aaa; margin:0.2rem;"></i></i>票劵資料列表</a>
-        <div class="card" style="margin: 2rem">
-            <div class="card-body">
+        <a href="ski_tickets_list.php" class="page-link" style="background:#212529;color:#fff;border-radius:.25rem;width:11rem;margin-bottom:1rem;margin-top:2rem;"><i class="fas fa-undo-alt" style="color:#aaa; margin:0.2rem;"></i></i>票劵資料列表</a>
+        
                 <form name="form1" onsubmit="return checkForm()">
-                    <input type="hidden" name="sid" value="<?= ($row['sid']) ?>">
-                    <div class="form_group">
-                        <label for="">名稱</label>
-                        <input type="text" class="form-control" id="name" name="name" value="<?= htmlentities($row['name']) ?>">
-                        <small id="nameHelp" class="form-text"></small>
+                <input type="hidden" name="sid" value="<?= ($row['sid']) ?>">
+                    <div class="form-row">
+                        <div class="form_group col-md-6">
+                            <label for="">名稱</label>
+                            <input type="text" class="form-control" id="name" name="name" value="<?= htmlentities($row['name']) ?>">
+                            <small id="nameHelp" class="form-text"></small>
+                        </div>
+                        <div class="form_group col-md-6">
+                            <label for="">價格</label>
+                            <input type="text" class="form-control" id="rate" name="rate" value="<?= htmlentities($row['rate']) ?>">
+                            <small id="rateHelp" class="form-text"></small>
+                        </div>
                     </div>
+                    
                     <br>
                     <div class="tickets1">
                         <label for="">門票</label><br>
@@ -76,20 +83,14 @@ if (empty($row)) {
                             <small id="typeHelp" class="form-text"></small>
                         </div>
                     </div>
-                    <div class="form_group">
-                        <label for="">價格</label>
-                        <input type="text" class="form-control" id="rate" name="rate" value="<?= htmlentities($row['rate']) ?>">
-                        <small id="rateHelp" class="form-text"></small>
-                    </div>
                     <br>
                     <div class="form_group">
                         <label for="" style="margin-bottom:1rem">描述</label><br>
-                        <textarea id="description" name="description" rows="4" cols="87" style="overflow-y:hidden;resize:none;padding:0.7rem 0.8rem;line-height:1.5rem;border: 1px solid #ced4da;border-radius: 0.25rem;"></textarea>
+                        <textarea class="form-control" id="description" name="description" rows="4" cols="87" style="overflow-y:hidden;resize:none;padding:0.7rem 0.8rem;line-height:1.5rem;border: 1px solid #ced4da;border-radius: 0.25rem;"></textarea>
                     </div>
-                    <button type="submit" class="submit btn btn-secondary" id="submit_btn">確認修改</button>
+                    <button type="submit" class="submit btn btn-outline-light" id="submit_btn">確認修改</button>
                 </form>
-            </div>
-        </div>
+      
         <script>
             const submit_btn = document.querySelector('#submit_btn');
             let i, s, item;
@@ -162,4 +163,4 @@ if (empty($row)) {
 
     </div>
 </div>
-<?php include("include/__footer.php"); ?>
+<?php include("include/v2-footer.php"); ?>

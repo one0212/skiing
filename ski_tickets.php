@@ -11,13 +11,13 @@ $page_title = '新增票劵';
 
 ?>
 
-<?php include("include/__head.php"); ?>
+<?php include("include/v2-head.php"); ?>
 <!-- HTML開頭＋link -->
-<?php include("include/__navbar.php"); ?>
+
 <!-- 導覽列 bootstrap的code -->
 
 <div style="display:flex;">
-    <?php include("include/__sidebar.php"); ?>
+    <?php include("include/v2-sidebar.php"); ?>
     <!-- 側邊欄 -->
 
 
@@ -25,59 +25,61 @@ $page_title = '新增票劵';
     <!-- 自己的html,css   code放這邊 -->
     <link rel="stylesheet" href="css/ski_tickets.css">
     <div class="container">
-        <a href="ski_tickets_list.php" class="page-link" style="color:#aaa; margin-top:1.3rem; margin-left:2rem; width:9.3rem;"><i class="fas fa-undo-alt" style="color:#aaa; margin:0.2rem;"></i></i>票劵資料列表</a>
-        <div class="card" style="margin: 2rem">
-            <div class="card-body">
-                <form name="form1" onsubmit="return checkForm()">
-                    <div class="form_group">
-                        <label for="">名稱</label>
-                        <input type="text" class="form-control" id="name" name="name">
-                        <small id="nameHelp" class="form-text"></small>
-                    </div>
-                    <br>
-                    <div class="tickets1">
-                    <label for="">門票</label><br>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline1" name="ticket" class="custom-control-input" value="兩日票" required>
-                        <label class="custom-control-label" for="customRadioInline1">兩日票</label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline2" name="ticket" class="custom-control-input" value="一日票" required>
-                        <label class="custom-control-label" for="customRadioInline2">一日票</label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline3" name="ticket" class="custom-control-input" value="半日票(5小時)" required>
-                        <label class="custom-control-label" for="customRadioInline3">半日票(5小時)</label>
-                        <small id="ticketHelp" class="form-text"></small>
-                    </div>
-                    </div>
-                    <br>
-                    <div class="type1">
-                    <label for="">類型</label><br>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline4" name="type" class="custom-control-input" value="一般(大人)" required>
-                        <label class="custom-control-label" for="customRadioInline4">一般(大人)</label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline5" name="type" class="custom-control-input" value="優待(小孩、老人)" required>
-                        <label class="custom-control-label" for="customRadioInline5">優待(小孩、老人)</label>
-                        <small id="typeHelp" class="form-text"></small>
-                    </div>
-                    </div>
-                    <div class="form_group">
-                        <label for="">價格</label>
-                        <input type="text" class="form-control" id="rate" name="rate">
-                        <small id="rateHelp" class="form-text"></small>
-                    </div>
-                    <br>
-                    <div class="form_group">
-                        <label for="" style="margin-bottom:1rem">描述</label><br>
-                        <textarea id="description" name="description" rows="4" cols="87" style="overflow-y:hidden;resize:none;padding:0.7rem 0.8rem;line-height:1.5rem;border: 1px solid #ced4da;border-radius: 0.25rem;"></textarea>
-                    </div>
-                    <button type="submit" class="submit btn btn-secondary" id="submit_btn">新增票劵</button>
-                </form>
+        <a href="ski_tickets_list.php" class="page-link" style="background:#212529;color:#fff;border-radius:.25rem;width:11rem;margin-bottom:1rem;margin-top:2rem;"><i class="fas fa-plus-circle" style="color:#aaa; margin:0.1rem;"></i></i>票劵資料列表</a>
+
+        <form name="form1" onsubmit="return checkForm()">
+
+            <div class="form-row">
+                <div class="form_group col-md-6">
+                    <label for="">名稱</label>
+                    <input type="text" class="form-control" id="name" name="name">
+                    <small id="nameHelp" class="form-text"></small>
+                </div>
+                <div class="form_group col-md-6">
+                    <label for="">價格</label>
+                    <input type="text" class="form-control" id="rate" name="rate">
+                    <small id="rateHelp" class="form-text"></small>
+                </div>
             </div>
-        </div>
+
+            <div class="tickets1">
+                <label for="">門票</label><br>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline1" name="ticket" class="custom-control-input" value="兩日票" required>
+                    <label class="custom-control-label" for="customRadioInline1">兩日票</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline2" name="ticket" class="custom-control-input" value="一日票" required>
+                    <label class="custom-control-label" for="customRadioInline2">一日票</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline3" name="ticket" class="custom-control-input" value="半日票(5小時)" required>
+                    <label class="custom-control-label" for="customRadioInline3">半日票(5小時)</label>
+                    <small id="ticketHelp" class="form-text"></small>
+                </div>
+            </div>
+
+            <br>
+            <div class="type1">
+                <label for="">類型</label><br>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline4" name="type" class="custom-control-input" value="一般(大人)" required>
+                    <label class="custom-control-label" for="customRadioInline4">一般(大人)</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline5" name="type" class="custom-control-input" value="優待(小孩、老人)" required>
+                    <label class="custom-control-label" for="customRadioInline5">優待(小孩、老人)</label>
+                    <small id="typeHelp" class="form-text"></small>
+                </div>
+            </div>
+            
+            <div class="form_group">
+                <label for="" style="margin-bottom:1rem">描述</label><br>
+                <textarea class="form-control" id="description" name="description" rows="4" cols="87" style="overflow-y:hidden;resize:none;padding:0.7rem 0.8rem;line-height:1.5rem;border: 1px solid #ced4da;border-radius: 0.25rem;"></textarea>
+            </div>
+            <button type="submit" class="submit btn btn-outline-light" id="submit_btn">新增票劵</button>
+        </form>
+
         <script>
             const submit_btn = document.querySelector('#submit_btn');
             let i, s, item;
@@ -135,7 +137,7 @@ $page_title = '新增票劵';
                             submit_btn.style.display = 'block';
                             if (json.success) {
                                 alert("票劵新增成功!");
-                                window.location.href="ski_tickets_list.php";
+                                window.location.href = "ski_tickets_list.php";
                             } else {
                                 alert("票劵新增失敗!");
                             }
@@ -150,4 +152,4 @@ $page_title = '新增票劵';
 
     </div>
 </div>
-<?php include("include/__footer.php"); ?>
+<?php include("include/v2-footer.php"); ?>
