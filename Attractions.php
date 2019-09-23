@@ -76,7 +76,7 @@ $stmt = $db->query($sql);
 
     
 
-    <div class="container-fluid" style="margin-left:90px">
+    <div class="container-fluid" style="margin-left:321px">
 
         <div class="d-flex justify-content-between align-items-center" style="margin-top:100px">
             <div>
