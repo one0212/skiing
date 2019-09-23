@@ -104,7 +104,18 @@ $stmt = $db->query($sql);
         oAjax.onreadystatechange = function() {
             console.log(oAjax.response);
             if (oAjax.readyState == 4 && oAjax.status == 200) { // 讀取完成 不代表讀取成功 需再用status檢查
-                updateVendorInfo(parentTrEle, JSON.parse(oAjax.responseText));
+                swal.resetDefaults();
+                    swal.setDefaults({
+                        confirmButtonText: "確定",
+                        confirmButtonColor: 'gray',
+                        cancelButtonColor: '#D3D3D3',
+                        showCloseButton: "true",
+                        allowOutsideClick: "true"
+                    });
+                    updateVendorInfo(parentTrEle, JSON.parse(oAjax.responseText));
+                    swal("修改成功!",
+                        "",
+                        "success");
                 // JSON.parse() 把json轉成object
 
                 // let formEle = document.querySelector('form');
@@ -115,19 +126,6 @@ $stmt = $db->query($sql);
                 //     info_bar.style.display = "none";
                 // }, 1000);
                 // formEle.submit()
-                $(document).on('click', '.question', function(c) {
-                    swal.resetDefaults();
-                    swal.setDefaults({
-                        confirmButtonText: "確定",
-                        confirmButtonColor: 'gray',
-                        cancelButtonColor: '#D3D3D3',
-                        showCloseButton: "true",
-                        allowOutsideClick: "true"
-                    });
-                    swal("修改成功!",
-                        "",
-                        "success");
-                });
             } else {
                 whenAjaxErr();
             }
