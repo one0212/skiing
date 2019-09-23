@@ -6,9 +6,22 @@
 .page-item.active .page-link {
     z-index: 1;
     color: #fff;
-    background-color: #ccc;
-    border-color: #ccc;
+    background-color: #3a4046;
+    border-color: #fff;
+}
+.page-item .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #212529;
+    border-color: #fff;
+}
+.fa-chevron-left {
+    padding: 0;
+}
+.fa-chevron-right {
+    padding: 0;
 }
 .icon {
-    color: rgb(130, 130, 130);
+    color: #fff;
 }
+

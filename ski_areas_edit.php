@@ -37,7 +37,7 @@ if(empty($row)) {
     <link rel="stylesheet" href="css/ski_areas_edit.css">
     <div class="main">
     <section class="container mt-4">
-    <a href="ski_areas_list.php" class="page-link" style="background:#212529;color:#fff;border-radius:.25rem;width:10rem;margin:1rem;"><i class="fas fa-undo-alt" style="color:#fff;"></i>雪場資料列表</a>
+    <a href="ski_areas_list.php" class="page-link" style="background:#212529;color:#fff;border-radius:.25rem;width:10rem;margin-bottom:1rem;"><i class="fas fa-undo-alt" style="color:#fff;"></i>雪場資料列表</a>
                 <form name="form1" onsubmit="return checkForm()">
                 <input type="hidden" name="sid" value="<?= $row['sid'] ?>">
                 <div class="form-row">
@@ -62,28 +62,28 @@ if(empty($row)) {
                     <label for="" style="margin-bottom:1rem">描述</label><br>
                     <textarea class="form-control" id="description" name="description" rows="6" cols="87" style="overflow-y:hidden;resize:none;padding:0.7rem 0.8rem;line-height:1.5rem;border: 1px solid #ced4da;border-radius: 0.25rem;"><?= htmlentities($row['description']) ?></textarea>
                 </div>
-
-                <div class="form-group">
-                    <label for="">營運起始時間</label>
-                    <input type="text" class="form-control" id="season_s" name="skiing_season_s" autocomplete="off" value="<?= htmlentities($row['skiing_season_s']) ?>">
-                    <small id="season_sHelp" class="form-text"></small>
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="">營運起始時間</label>
+                        <input type="text" class="form-control" id="season_s" name="skiing_season_s" autocomplete="off" value="<?= htmlentities($row['skiing_season_s']) ?>">
+                        <small id="season_sHelp" class="form-text"></small>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="">營運結束時間</label>
+                        <input type="text" class="form-control" id="season_e" name="skiing_season_e" autocomplete="off" value="<?= htmlentities($row['skiing_season_e']) ?>">
+                        <small id="season_eHelp" class="form-text"></small>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="">營業起始時間</label>
+                        <input type="text" class="form-control" id="hours_s" name="business_hours_s" value="<?= htmlentities($row['business_hours_s']) ?>">
+                        <small id="hours_sHelp" class="form-text"></small>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="">營業結束時間</label>
+                        <input type="text" class="form-control" id="hours_e" name="business_hours_e" value="<?= htmlentities($row['business_hours_e']) ?>">
+                        <small id="hours_eHelp" class="form-text"></small>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="">營運結束時間</label>
-                    <input type="text" class="form-control" id="season_e" name="skiing_season_e" autocomplete="off" value="<?= htmlentities($row['skiing_season_e']) ?>">
-                    <small id="season_eHelp" class="form-text"></small>
-                </div>
-                <div class="form-group">
-                    <label for="">營業起始時間</label>
-                    <input type="text" class="form-control" id="hours_s" name="business_hours_s" value="<?= htmlentities($row['business_hours_s']) ?>">
-                    <small id="hours_sHelp" class="form-text"></small>
-                </div>
-                <div class="form-group">
-                    <label for="">營業結束時間</label>
-                    <input type="text" class="form-control" id="hours_e" name="business_hours_e" value="<?= htmlentities($row['business_hours_e']) ?>">
-                    <small id="hours_eHelp" class="form-text"></small>
-                </div>
-
                 <div class="form-row">
                     <div class="form-group form_g col-md-6">
                         <label for="">雪場圖片</label><br>

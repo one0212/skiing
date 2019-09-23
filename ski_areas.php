@@ -21,7 +21,7 @@ $page_title = '新增雪場';
     <!-- <link rel="stylesheet" href="CSS/ski_areas.css"> -->
     <div class="main">
         <section class="container mt-4">
-            <a href="ski_areas_list.php" class="page-link" style="background:#212529;color:#fff;border-radius:.25rem;width:10rem;margin:1rem;"><i class="fas fa-undo-alt" style="color:#fff;"></i>雪場資料列表</a>
+            <a href="ski_areas_list.php" class="page-link" style="background:#212529;color:#fff;border-radius:.25rem;width:10rem;margin-bottom:1rem;"><i class="fas fa-undo-alt" style="color:#fff;"></i>雪場資料列表</a>
 
             <form name="form1" onsubmit="return checkForm()">
                 <div class="form-row">
@@ -45,26 +45,29 @@ $page_title = '新增雪場';
                     <label for="" style="margin-bottom:1rem">描述</label><br>
                     <textarea class="form-control" id="description" name="description" rows="6" cols="87" style="overflow-y:hidden;resize:none;padding:0.7rem 0.8rem;line-height:1.5rem;border: 1px solid #ced4da;border-radius: 0.25rem;"></textarea>
                 </div>
-                <div class="form-group">
-                    <label for="">營運起始時間</label>
-                    <input type="text" class="form-control" id="season_s" name="skiing_season_s" autocomplete="off">
-                    <small id="season_sHelp" class="form-text"></small>
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="">營運起始時間</label>
+                        <input type="text" class="form-control" id="season_s" name="skiing_season_s" autocomplete="off">
+                        <small id="season_sHelp" class="form-text"></small>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="">營運結束時間</label>
+                        <input type="text" class="form-control" id="season_e" name="skiing_season_e" autocomplete="off">
+                        <small id="season_eHelp" class="form-text"></small>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="">營業起始時間</label>
+                        <input type="text" class="form-control" id="hours_s" name="business_hours_s">
+                        <small id="hours_sHelp" class="form-text"></small>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="">營業結束時間</label>
+                        <input type="text" class="form-control" id="hours_e" name="business_hours_e">
+                        <small id="hours_eHelp" class="form-text"></small>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="">營運結束時間</label>
-                    <input type="text" class="form-control" id="season_e" name="skiing_season_e" autocomplete="off">
-                    <small id="season_eHelp" class="form-text"></small>
-                </div>
-                <div class="form-group">
-                    <label for="">營業起始時間</label>
-                    <input type="text" class="form-control" id="hours_s" name="business_hours_s">
-                    <small id="hours_sHelp" class="form-text"></small>
-                </div>
-                <div class="form-group">
-                    <label for="">營業結束時間</label>
-                    <input type="text" class="form-control" id="hours_e" name="business_hours_e">
-                    <small id="hours_eHelp" class="form-text"></small>
-                </div>
+
                 <div class="form-row">
                     <div class="form-group form_g col-md-6">
                         <label for="">雪場圖片</label><br>
@@ -125,7 +128,7 @@ $page_title = '新增雪場';
                     <label for="">飯店</label>
                     <textarea class="form-control" id="hostel" name="hostel" rows="6" style="overflow-y:hidden;resize:none;padding:0.7rem 0.8rem;line-height:1.5rem;border: 1px solid #ced4da;border-radius: 0.25rem;"></textarea>
                 </div>
-                <div class="form-row">   
+                <div class="form-row">
 
                     <div class="form-group form_g col-md-6">
                         <label for="">飯店圖片</label><br>
@@ -155,174 +158,174 @@ $page_title = '新增雪場';
                 <button type="submit" class="submit btn btn-outline-light" id="submit_btn">新增雪場</button>
             </form>
         </section>
-     </div>
-        <script>
-            function selUploadFile(event) {
-                var btn = event.target;
-                var field = btn.closest('.form_g').querySelector('input');
-                field.click();
+    </div>
+    <script>
+        function selUploadFile(event) {
+            var btn = event.target;
+            var field = btn.closest('.form_g').querySelector('input');
+            field.click();
+        }
+
+        function myPreviewFile(event) {
+
+            var me = event.target;
+            var preview = me.closest('.form_g').querySelector('img');
+            preview.style.display = 'block';
+
+            var file = me.files[0];
+            var reader = new FileReader();
+
+            reader.addEventListener("load", function() {
+                preview.src = reader.result;
+            }, false);
+
+            if (file) {
+                reader.readAsDataURL(file);
             }
+        }
 
-            function myPreviewFile(event) {
+        const submit_btn = document.querySelector('#submit_btn');
+        let i, s, item;
+        const required_fields = [{
+                id: 'name',
+                pattern: /.+/,
+                info: '這是必填項目!'
+            },
+            {
+                id: 'country',
+                pattern: /.+/,
+                info: '這是必填項目!'
+            },
+            {
+                id: 'address',
+                pattern: /.+/,
+                info: '這是必填項目!'
+            },
+            {
+                id: 'season_s',
+                pattern: /.+/,
+                info: '這是必填項目!'
+            },
+            {
+                id: 'season_e',
+                pattern: /.+/,
+                info: '這是必填項目!'
+            },
+            {
+                id: 'hours_s',
+                pattern: /.+/,
+                info: '這是必填項目!'
+            },
+            {
+                id: 'hours_e',
+                pattern: /.+/,
+                info: '這是必填項目!'
+            },
+            {
+                id: 'acreage',
+                pattern: /.+/,
+                info: '這是必填項目!'
+            },
+            {
+                id: 'number',
+                pattern: /.+/,
+                info: '這是必填項目!'
+            },
+            {
+                id: 'longest',
+                pattern: /.+/,
+                info: '這是必填項目!'
+            },
+            {
+                id: 'gradient',
+                pattern: /.+/,
+                info: '這是必填項目!'
+            },
+            {
+                id: 'vertical',
+                pattern: /.+/,
+                info: '這是必填項目!'
+            },
+            {
+                id: 'tickets',
+                pattern: /.+/,
+                info: '這是必填項目!'
+            },
+            {
+                id: 'car',
+                pattern: /.+/,
+                info: '這是必填項目!'
+            },
+            {
+                id: 'bus',
+                pattern: /.+/,
+                info: '這是必填項目!'
+            },
+            {
+                id: 'train',
+                pattern: /.+/,
+                info: '這是必填項目!'
+            },
+        ];
 
-                var me = event.target;
-                var preview = me.closest('.form_g').querySelector('img');
-                preview.style.display = 'block';
+        // 拿到對應的 input element (el), 顯示訊息的 small element (infoEl)
+        for (s in required_fields) {
+            item = required_fields[s];
+            item.el = document.querySelector('#' + item.id);
+            item.infoEl = document.querySelector('#' + item.id + 'Help');
+        }
 
-                var file = me.files[0];
-                var reader = new FileReader();
-
-                reader.addEventListener("load", function() {
-                    preview.src = reader.result;
-                }, false);
-
-                if (file) {
-                    reader.readAsDataURL(file);
-                }
-            }
-
-            const submit_btn = document.querySelector('#submit_btn');
-            let i, s, item;
-            const required_fields = [{
-                    id: 'name',
-                    pattern: /.+/,
-                    info: '這是必填項目!'
-                },
-                {
-                    id: 'country',
-                    pattern: /.+/,
-                    info: '這是必填項目!'
-                },
-                {
-                    id: 'address',
-                    pattern: /.+/,
-                    info: '這是必填項目!'
-                },
-                {
-                    id: 'season_s',
-                    pattern: /.+/,
-                    info: '這是必填項目!'
-                },
-                {
-                    id: 'season_e',
-                    pattern: /.+/,
-                    info: '這是必填項目!'
-                },
-                {
-                    id: 'hours_s',
-                    pattern: /.+/,
-                    info: '這是必填項目!'
-                },
-                {
-                    id: 'hours_e',
-                    pattern: /.+/,
-                    info: '這是必填項目!'
-                },
-                {
-                    id: 'acreage',
-                    pattern: /.+/,
-                    info: '這是必填項目!'
-                },
-                {
-                    id: 'number',
-                    pattern: /.+/,
-                    info: '這是必填項目!'
-                },
-                {
-                    id: 'longest',
-                    pattern: /.+/,
-                    info: '這是必填項目!'
-                },
-                {
-                    id: 'gradient',
-                    pattern: /.+/,
-                    info: '這是必填項目!'
-                },
-                {
-                    id: 'vertical',
-                    pattern: /.+/,
-                    info: '這是必填項目!'
-                },
-                {
-                    id: 'tickets',
-                    pattern: /.+/,
-                    info: '這是必填項目!'
-                },
-                {
-                    id: 'car',
-                    pattern: /.+/,
-                    info: '這是必填項目!'
-                },
-                {
-                    id: 'bus',
-                    pattern: /.+/,
-                    info: '這是必填項目!'
-                },
-                {
-                    id: 'train',
-                    pattern: /.+/,
-                    info: '這是必填項目!'
-                },
-            ];
-
-            // 拿到對應的 input element (el), 顯示訊息的 small element (infoEl)
+        // 先讓所有欄位外觀回復到原本的狀態
+        function checkForm() {
             for (s in required_fields) {
                 item = required_fields[s];
-                item.el = document.querySelector('#' + item.id);
-                item.infoEl = document.querySelector('#' + item.id + 'Help');
+                item.el.style.border = '1px solid #ced4da';
+                item.infoEl.innerHTML = '';
             }
 
-            // 先讓所有欄位外觀回復到原本的狀態
-            function checkForm() {
-                for (s in required_fields) {
-                    item = required_fields[s];
-                    item.el.style.border = '1px solid #ced4da';
-                    item.infoEl.innerHTML = '';
+            // 檢查必填欄位, 欄位值的格式
+            let isPass = true;
+
+            for (s in required_fields) {
+                item = required_fields[s];
+                if (!item.pattern.test(item.el.value)) {
+                    item.el.style.border = '1px solid red';
+                    item.infoEl.innerHTML = item.info;
+                    isPass = false;
                 }
-
-                // 檢查必填欄位, 欄位值的格式
-                let isPass = true;
-
-                for (s in required_fields) {
-                    item = required_fields[s];
-                    if (!item.pattern.test(item.el.value)) {
-                        item.el.style.border = '1px solid red';
-                        item.infoEl.innerHTML = item.info;
-                        isPass = false;
-                    }
-                }
-
-                let fd = new FormData(document.form1);
-
-                if (isPass) {
-                    fetch('ski_areas_api.php', {
-                            method: 'POST',
-                            body: fd,
-                        })
-                        .then(response => {
-                            return response.json(); //拿裡面的內容轉換成json
-                        })
-                        .then(json => {
-                            console.log(json);
-                            submit_btn.style.display = 'block';
-                            if (json.success) {
-                                alert("雪場新增成功!");
-                                window.location.href = "ski_areas_list.php";
-                            } else {
-                                alert("雪場新增失敗!");
-                            }
-                        });
-                } else {
-                    submit_btn.style.display = 'block';
-                }
-                return false; // 表單不用傳統的 post 方式送出
-
             }
-        </script>
-   
-</div>
-    <?php include("include/v2-footer.php"); ?>
-    <script>
-        $("#season_s").datepicker();
-        $("#season_e").datepicker();
+
+            let fd = new FormData(document.form1);
+
+            if (isPass) {
+                fetch('ski_areas_api.php', {
+                        method: 'POST',
+                        body: fd,
+                    })
+                    .then(response => {
+                        return response.json(); //拿裡面的內容轉換成json
+                    })
+                    .then(json => {
+                        console.log(json);
+                        submit_btn.style.display = 'block';
+                        if (json.success) {
+                            alert("雪場新增成功!");
+                            window.location.href = "ski_areas_list.php";
+                        } else {
+                            alert("雪場新增失敗!");
+                        }
+                    });
+            } else {
+                submit_btn.style.display = 'block';
+            }
+            return false; // 表單不用傳統的 post 方式送出
+
+        }
     </script>
+
+</div>
+<?php include("include/v2-footer.php"); ?>
+<script>
+    $("#season_s").datepicker();
+    $("#season_e").datepicker();
+</script>
