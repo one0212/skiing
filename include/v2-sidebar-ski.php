@@ -38,7 +38,7 @@ $bid = $_SESSION['bid'];
             </a>
         </li>
         <li>
-            <a href="ski_area_list.php">
+            <a href="ski_areas_list.php">
                 <i class="fas fa-snowman"></i>雪場管理
             </a>
         </li>
