@@ -124,20 +124,20 @@ if($bid == "MAVL"):?>
 
 <nav class="navbar">
     <a class="navbar-brand" href="#">Navbar</a>
-    <div class="container d-flex justify-content-end">
+    <div class="d-flex justify-content-end">
     <ul class="nav">
         <?php if (isset($_SESSION['account'])) : ?>
             <li class="nav-item">
-                <a class="nav-link"><?= "Hello !  " . $_SESSION['account'] ?>
+                <a class="text-light nav-link"><?= "Hello !  " . $_SESSION['account'] ?>
                     <!-- session_start();  -->
                 </a>
             </li>
             <li class="nav-item">
-            <a class="nav-link btn btn-secondary" href="logout.php">登出</a>
+            <a class="nav-link p-2 btn btn-secondary" href="logout.php">登出</a>
             </li>
         <?php else : ?>
             <li class="nav-item ">
-               <a class="nav-link btn btn-secondary" href="login.php">登入</a>
+               <a class="nav-link p-2 btn btn-secondary" href="login.php">登入</a>
             </li>
         <?php endif ?>
         <!-- <li><img src="" alt=""></li> -->
