@@ -2,9 +2,31 @@
 require("config.php");
 
 $bid = $_SESSION['bid'];
-
-// --------------- ski -----------------
-if($bid == "MAVL"):?>
+?>
+<nav class="navbar">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <div class="d-flex justify-content-end">
+    <ul class="nav">
+        <?php if (isset($_SESSION['account'])) : ?>
+            <li class="nav-item">
+                <a class="text-light nav-link"><?= "Hello !  " . $_SESSION['account'] ?>
+                    <!-- session_start();  -->
+                </a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link p-2 btn btn-secondary" href="logout.php">登出</a>
+            </li>
+        <?php else : ?>
+            <li class="nav-item ">
+               <a class="nav-link p-2 btn btn-secondary" href="login.php">登入</a>
+            </li>
+        <?php endif ?>
+        <!-- <li><img src="" alt=""></li> -->
+    </ul>
+</div>
+</nav>
+<!-- --------------- ski ----------------- -->
+<?php if($bid == "MAVL"):?>
 <aside id="sidebar">
     <div class="sidebar-header">
         <a href=""><img class="svg-logo" src="images/skigo-logo.svg" alt="logo"></a>
@@ -88,7 +110,7 @@ if($bid == "MAVL"):?>
 </aside>
 <!-- ---------------- nike ------------------- -->
 <!-- ------------------ admin ------------------- -->
-<?php else: ?>
+<?php elseif($bid == "XXXX"): ?>
 <aside id="sidebar">
     <div class="sidebar-header">
         <a href=""><img class="svg-logo" src="images/skigo-logo.svg" alt="logo"></a>
@@ -122,25 +144,3 @@ if($bid == "MAVL"):?>
 <?php endif; ?>
 <!------------------ admin ------------------->
 
-<nav class="navbar">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <div class="d-flex justify-content-end">
-    <ul class="nav">
-        <?php if (isset($_SESSION['account'])) : ?>
-            <li class="nav-item">
-                <a class="text-light nav-link"><?= "Hello !  " . $_SESSION['account'] ?>
-                    <!-- session_start();  -->
-                </a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link p-2 btn btn-secondary" href="logout.php">登出</a>
-            </li>
-        <?php else : ?>
-            <li class="nav-item ">
-               <a class="nav-link p-2 btn btn-secondary" href="login.php">登入</a>
-            </li>
-        <?php endif ?>
-        <!-- <li><img src="" alt=""></li> -->
-    </ul>
-</div>
-</nav>

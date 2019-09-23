@@ -3,6 +3,7 @@
 
 session_start();
 // 這個變數 用在<title>標籤中
+
 $page_title = '資料列表';
 // 這個變數 是用在下面引入的navbar檔案
 $page_name = 'datalist';
@@ -67,10 +68,10 @@ $stmt = $db->query($sql);
 <!-- 導覽列 bootstrap的code -->
 
 
+<?php include("include/v2-sidebar-ski.php"); ?>
 <div style="display:flex;">
 
 
-    <?php include("include/v2-sidebar.php"); ?>
     <!-- 側邊欄 -->
 
     
