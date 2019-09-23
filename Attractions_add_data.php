@@ -11,12 +11,12 @@ $page_title = '新增資料';
 
 
 <link rel="stylesheet" href="fontawesome/css/all.css">
-<?php include("include/__head.php"); ?>
+<?php include("include/v2-head.php"); ?>
 <!-- HTML開頭＋link -->
-<?php include("include/__navbar.php"); ?>
+
 <!-- 導覽列 bootstrap的code -->
 <div id="" style="display:flex;">
-    <?php include("include/__sidebar.php"); ?>
+<?php include("include/v2-sidebar.php"); ?>
     <!-- 側邊欄 -->
 
     <div class="container" style="margin-top:50px">
@@ -208,4 +208,4 @@ $page_title = '新增資料';
 
 
 </div>
-<?php include("include/__footer.php"); ?>
+<?php include("include/v2-footer.php"); ?>
