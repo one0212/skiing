@@ -11,23 +11,6 @@ $page = isset($_GET['page']) ? intval($_GET['page']) : 1; //用戶要看第幾�
 
 $per_page = 5; // 每一頁要顯示幾筆
 
-$t_sql = "SELECT COUNT(1) FROM `MGNT_SKI_AREAS` ";
-
-$t_stmt = $db->query($t_sql);
-$totalRows = $t_stmt->fetch(PDO::FETCH_NUM)[0]; // 拿到總筆數
-//$totalRows = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0]; // 拿到總筆數
-
-$totalPages = $totalRows; // 取得總頁數
-
-if ($page < 1) {
-    header('Location: ski_areas_list.php');
-    exit;
-}
-if ($page > $totalPages) {
-    header('Location: ski_areas_list.php?page=' . $totalPages);
-    exit;
-}
-
 $sql = sprintf(
     "SELECT * FROM `MGNT_SKI_AREAS` ORDER BY `sid` DESC LIMIT %s, %s",
     ($page - 1) * $per_page, //每頁從第幾筆#開始(用索引去看,跟primaryKey無關)
@@ -35,7 +18,6 @@ $sql = sprintf(
 );
 $stmt = $db->query($sql);
 
-//$rows = $stmt->fetchAll();
 ?>
 
 <?php include("include/v2-head.php"); ?>
@@ -73,6 +55,7 @@ $stmt = $db->query($sql);
         </div>
         <script>
             function delete_one(sid) {
+                
                 if (confirm(`確定要刪除編號為 ${sid} 的資料嗎?`)) {
                     location.href = 'ski_areas_delete.php?sid=' + sid;
                 }

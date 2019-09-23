@@ -40,9 +40,10 @@ if(!empty($_FILES['hostel_image'])){ // 有沒有上傳
 
 $sql = "UPDATE `MGNT_SKI_AREAS` SET
     `name`=?, `country`=?, `address`=?, `number_of_courses`=?, `acreage`=?, `longest_run`=?,
-     `slop_gradient`=?, `vertical_drop`=?, `ski_image`=?, `ski_map`=?, `skiing_season`=?, 
-     `business_hours`=?, `tickets`=?, `rentals`=?, `lessons`=?, `hostel`=?, `hostel_image`=?, 
-     `access_car`=?, `access_bus`=?, `access_train`=?, `description`=? WHERE `sid`=?";
+     `slop_gradient`=?, `vertical_drop`=?, `ski_image`=?, `ski_map`=?, `skiing_season_s`=?,
+     `skiing_season_e`=?, `business_hours_s`=?, `business_hours_e`=?, `tickets`=?, `rentals`=?, 
+     `lessons`=?, `hostel`=?, `hostel_image`=?, `access_car`=?, `access_bus`=?, `access_train`=?,
+     `description`=? WHERE `sid`=?";
 
 $stmt = $db->prepare($sql);
 
@@ -79,8 +80,10 @@ $stmt->execute([
     $_POST['vertical_drop'],
     $_FILES['ski_image']['name'],
     $_FILES['ski_map']['name'],
-    $_POST['skiing_season'],
-    $_POST['business_hours'],
+    $_POST['skiing_season_s'],
+    $_POST['skiing_season_e'],
+    $_POST['business_hours_s'],
+    $_POST['business_hours_e'],
     $_POST['tickets'],
     $_POST['rentals'],
     $_POST['lessons'],
