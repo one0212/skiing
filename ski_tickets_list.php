@@ -17,7 +17,7 @@ $t_stmt = $db->query($tickets_sql);
 $totalRows = $t_stmt->fetch(PDO::FETCH_NUM)[0]; // 拿到總筆數
 //$totalRows = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0]; // 拿到總筆數
 
-$totalPages = ceil($totalRows/$per_page); // 取得總頁數
+$totalPages = ceil($totalRows / $per_page); // 取得總頁數
 
 if ($page < 1) {
     header('Location: ski_tickets_list.php');
@@ -30,7 +30,7 @@ if ($page > $totalPages) {
 
 $s = isset($_GET['s']) ? intval($_GET['s']) : 0;
 
-if($s==1){
+if ($s == 1) {
     $orderby = ' ORDER BY `sid` DESC ';
 } else {
     $orderby = ' ORDER BY `sid` ASC ';
@@ -40,9 +40,9 @@ if($s==1){
 $sql = sprintf(
     "SELECT * FROM `MGNT_SKI_TICKETS` %s LIMIT %s, %s",
     $orderby,
-    ($page - 1) * $per_page, 
+    ($page - 1) * $per_page,
     $per_page
-    );
+);
 $tickets_stmt = $db->query($sql);
 
 //$rows = $tickets_stmt->fetchAll();
@@ -54,7 +54,7 @@ $tickets_stmt = $db->query($sql);
 <!-- 導覽列 bootstrap的code -->
 
 <div style="display:flex;">
-<?php include("include/v2-sidebar-ski.php"); ?>
+    <?php include("include/v2-sidebar-ski.php"); ?>
     <!-- 側邊欄 -->
 
     <!-- 自己的html,css   code放這邊 -->
@@ -65,7 +65,7 @@ $tickets_stmt = $db->query($sql);
                 <nav aria-label="Page navigation example" class="d-flex">
                     <ul class="pagination">
                         <li class="page-item">
-                            <a class="page-link" href="?page=<?= sprintf("%s&s=%s", $page-1, $s) ?>">
+                            <a class="page-link" href="?page=<?= sprintf("%s&s=%s", $page - 1, $s) ?>">
                                 <i class="fas fa-chevron-left"></i>
                             </a>
                         </li>
@@ -80,15 +80,15 @@ $tickets_stmt = $db->query($sql);
                             </li>
                         <?php endfor; ?>
                         <li class="page-item">
-                            <a class="page-link" href="?page=<?= sprintf("%s&s=%s", $page+1, $s) ?>"">
-                                <i class="fas fa-chevron-right"></i>
+                            <a class="page-link" href="?page=<?= sprintf("%s&s=%s", $page + 1, $s) ?>"">
+                                <i class=" fas fa-chevron-right"></i>
                             </a>
                         </li>
                     </ul>
-                    <p class="totalRows ml-3" style="margin-top:0.7rem;color:#fff;letter-spacing:0.15em;font-weight:600">共有&nbsp;<?php echo $totalRows?>&nbsp;筆資料</p>
+                    <p class="totalRows ml-3" style="margin-top:0.7rem;color:#fff;letter-spacing:0.15em;font-weight:600">共有&nbsp;<?php echo $totalRows ?>&nbsp;筆資料</p>
                 </nav>
                 <div class="d-flex">
-                        <a href="ski_tickets.php" class="page-link" style="background:#212529;color:#fff;border-radius:.25rem;width:7rem;margin-bottom:1rem;"><i class="fas fa-plus-circle" style="color:#aaa; margin:0.1rem;"></i>創建</a>       
+                    <a href="ski_tickets.php" class="page-link" style="background:#212529;color:#fff;border-radius:.25rem;width:7rem;margin-bottom:1rem;"><i class="fas fa-plus-circle" style="color:#aaa; margin:0.1rem;"></i>創建</a>
                 </div>
             </div>
             <table class="table table-hover table-dark table_1">
@@ -99,13 +99,13 @@ $tickets_stmt = $db->query($sql);
                         <th scope="col">
 
                             <?php
-                            if($s==1){
+                            if ($s == 1) {
                                 echo '<a href="ski_tickets_list.php"><i class="fas fa-sort" style="color:#fff"></i></a>';
                             } else {
                                 echo '<a href="ski_tickets_list.php?s=1"><i class="fas fa-sort" style="color:#fff"></i></a>';
                             }
                             ?>
-                
+
                         </th>
                         <th scope="col">名稱</th>
                         <th scope="col">門票</th>
@@ -116,84 +116,102 @@ $tickets_stmt = $db->query($sql);
                     </tr>
                 </thead>
                 <?php while ($r_tickets = $tickets_stmt->fetch()) {  ?>
-                <tbody>
-                    <tr>
-                        <td><input type="checkbox" name="sid" value="<?= $r_tickets['sid'] ?>"></td>
-                        <td><a href="javascript:delete_one(<?= $r_tickets['sid'] ?>)"><i class="far fa-trash-alt icon"></i></a></td>
-                        <td><?= $r_tickets['sid'] ?></td>
-                        <td><?= htmlentities($r_tickets['name']) ?></td>
-                        <td><?= htmlentities($r_tickets['ticket']) ?></td>
-                        <td><?= htmlentities($r_tickets['type']) ?></td>
-                        <td><?= htmlentities($r_tickets['rate']) ?></td>
-                        <td><?= htmlentities($r_tickets['description']) ?></td>
-                        <td><a href="ski_tickets_edit.php?sid=<?= $r_tickets['sid'] ?>"><i class="fas fa-edit icon"></i></a></td>
-                    </tr>
-                </tbody>
-            <?php } ?>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox" name="sid" value="<?= $r_tickets['sid'] ?>"></td>
+                            <td><a href="javascript:delete_one(<?= $r_tickets['sid'] ?>)"><i class="far fa-trash-alt icon"></i></a></td>
+                            <td><?= $r_tickets['sid'] ?></td>
+                            <td><?= htmlentities($r_tickets['name']) ?></td>
+                            <td><?= htmlentities($r_tickets['ticket']) ?></td>
+                            <td><?= htmlentities($r_tickets['type']) ?></td>
+                            <td><?= htmlentities($r_tickets['rate']) ?></td>
+                            <td><?= htmlentities($r_tickets['description']) ?></td>
+                            <td><a href="ski_tickets_edit.php?sid=<?= $r_tickets['sid'] ?>"><i class="fas fa-edit icon"></i></a></td>
+                        </tr>
+                    </tbody>
+                <?php } ?>
 
             </table>
             <a href="javascript:delAll()" class="page-link btn-outline-light" style="background:#212529;color:#fff;border-radius:.25rem;width:5.7rem;margin-bottom:1rem;">批次刪除</a>
         </div>
         <script>
-        function delete_one(sid) {
-            if(confirm(`確定要刪除編號為 ${sid} 的資料嗎?`)){
-                location.href = 'ski_tickets_delete.php?sid=' + sid;
-            }
-            location.href = 'ski_tickets_delete.php?sid=' + sid;
+            function delete_one(sid) {
+                swal({
+                        title: "確認刪除資料?",
+                        type: "question",
+                        confirmButtonText: "確定",
+                        cancelButtonText: '取消',
+                        confirmButtonColor: 'gray',
+                        cancelButtonColor: '#D3D3D3',
+                        showCancelButton: true
+                    }).then((result) => {
+                        if (result.value) {
+                            location.href = 'ski_tickets_delete.php?sid=' + sid;
+                        }
+                    })
 
-        }
-        function delAll() {
-           let sid = [];
-           $("tbody input:checked").each(function(){
-               if($(this).prop('checked')) {
-                   sid.push($(this).val())
-               }
-           });
-           if(!sid.length) {
-                swal.setDefaults({
-                confirmButtonText: "確定",
-                confirmButtonColor: 'gray',
-                cancelButtonColor: '#D3D3D3',
-                showCloseButton: "true",
-                allowOutsideClick: "true"
-            });  
-            swal("沒有選擇任何資料!",
-                    "",
-                    "warning");
-           }else{
-            alert("確認刪除資料?");
-            location.href = 'ski_tickets_delAll.php?sid=' + sid.toString();
-          
-           }
-           
-        }
-    </script>
+            }
+
+            function delAll() {
+                let sid = [];
+                $("tbody input:checked").each(function() {
+                    if ($(this).prop('checked')) {
+                        sid.push($(this).val())
+                    }
+                });
+                if (!sid.length) {
+                    swal({
+                        title: "沒有選擇任何資料!",
+                        type: "warning",
+                        confirmButtonText: "確定",
+                        confirmButtonColor: 'gray',
+                        cancelButtonColor: '#D3D3D3'
+                    });
+                } else {
+                    swal({
+                        title: "確認刪除資料?",
+                        type: "question",
+                        confirmButtonText: "確定",
+                        cancelButtonText: '取消',
+                        confirmButtonColor: 'gray',
+                        cancelButtonColor: '#D3D3D3',
+                        showCancelButton: true
+                    }).then((result) => {
+                        if (result.value) {
+                            location.href = 'ski_tickets_delAll.php?sid=' + sid.toString();
+                        }
+                    })
+            
+                }
+
+            }
+        </script>
     </div>
 </div>
 <?php include("include/v2-footer.php"); ?>
 <script>
-        let dataCount = $("tbody tr").length;
-        $("tbody :checkbox").click(function(){
-            let checked = $(this).prop("checked")
-            let checkedCount = $("tbody :checked").length;
-            if(checked){
-                $(this).closest("tr").addClass("active")
-            }else{
-                $(this).closest("tr").removeClass("active")
-            } 
-            if(dataCount == checkedCount){
-                $("#checkAll").prop("checked",true)
-            }else{
-                $("#checkAll").prop("checked",false)
-            }
-        })
-        $("#checkAll").click(function(){
-            let checkAll = $(this).prop("checked")
-            $("tbody :checkbox").prop("checked",checkAll)
-            if(checkAll){
-                $("tbody tr").addClass("active")
-            }else{
-                $("tbody tr").removeClass("active")
-            }
-        })
+    let dataCount = $("tbody tr").length;
+    $("tbody :checkbox").click(function() {
+        let checked = $(this).prop("checked")
+        let checkedCount = $("tbody :checked").length;
+        if (checked) {
+            $(this).closest("tr").addClass("active")
+        } else {
+            $(this).closest("tr").removeClass("active")
+        }
+        if (dataCount == checkedCount) {
+            $("#checkAll").prop("checked", true)
+        } else {
+            $("#checkAll").prop("checked", false)
+        }
+    })
+    $("#checkAll").click(function() {
+        let checkAll = $(this).prop("checked")
+        $("tbody :checkbox").prop("checked", checkAll)
+        if (checkAll) {
+            $("tbody tr").addClass("active")
+        } else {
+            $("tbody tr").removeClass("active")
+        }
+    })
 </script>
