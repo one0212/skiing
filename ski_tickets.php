@@ -143,21 +143,23 @@ $page_title = '新增票劵';
                     submit_btn.style.display = 'block';
                     if (json.success) {
                         // swal.resetDefaults();
-                       
-                        swal.setDefaults({
+
+                        swal({
+                            title: "新增成功!",
+                            type: "success",
                             confirmButtonText: "確定",
                             confirmButtonColor: 'gray',
-                            cancelButtonColor: '#D3D3D3',
-                            showCloseButton: "true",
-                            allowOutsideClick: "true"
-                        });
-                        swal("新增成功!",
-                            "",
-                            "success")
-                        // window.location.href = "ski_tickets_list.php";
+                            showCancelButton: false
+                        }).then((result) => {
+                            if (result.value) {
+                                window.location.href = "ski_tickets_list.php";
+                            }
+                        })
                     } else {
                         alert("票劵新增失敗!");
                     }
+
+
                 });
         } else {
             submit_btn.style.display = 'block';
