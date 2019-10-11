@@ -5,15 +5,17 @@ $page_title = '品牌列表';
 
 
 
-//設定pagination
+//page
 
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 
-$per_page = 2; //每頁總筆數
+$per_page = 5; //每頁總筆數
 $brand_sql = 'SELECT COUNT(*) FROM `brand_data`';
 $brand_stmt = $db->query($brand_sql);
 $totalRows = $brand_stmt->fetch(PDO::FETCH_NUM)[0]; //取得總筆數
 $totalPages = ceil($totalRows / $per_page); //總頁數 =  總筆數 / 每頁顯示幾筆資料
+
+
 
 #page值小於1 轉回頁面第一頁離開
 if ($page < 1) {
@@ -26,15 +28,15 @@ if ($page > $totalPages) {
     exit;
 }
 
-// echo "$totalPages <br>";
-// echo "$totalRows <br>";
-// exit;
-// 設定pagination 結束
 
-//抓取資料  brand_data join Country
+
+
+
+//抓取資料  brand_data + country
 $sql = sprintf(
-    "SELECT * FROM `brand_data`  JOIN `Country` ON brand_data.Country_id = Country.id  ORDER BY `Brand_id` ASC LIMIT %s,%s",
-    ($page - 1) * $per_page, //
+    "SELECT * FROM `brand_data` JOIN `country` ON brand_data.country_id = country.country_id
+    ORDER BY `brand_id` ASC LIMIT %s,%s",
+    ($page - 1) * $per_page,
     $per_page
 );
 $brand_sql = $db->query($sql);
@@ -49,6 +51,14 @@ $brand_sql = $db->query($sql);
 
 <!-- 自己的html,css   code放這邊 -->
 <link rel="stylesheet" href="CSS/brand_list.css">
+
+<style>
+    .table tbody tr td {
+        vertical-align: inherit;
+
+    }
+
+</style>
 
 
 <div class="main">
@@ -90,12 +100,12 @@ $brand_sql = $db->query($sql);
         <tbody>
             <?php while ($r = $brand_sql->fetch()) { ?>
                 <tr>
-                    <td><?= $r['Brand_id'] ?></td>
-                    <td><img src="<?= 'uploads/brand/' . $r['BrandLogo'] ?>" style="width:80px">
-                    <td><?= $r['BrandNumber'] ?></td>
-                    <td><?= $r['BrandName'] ?></td>
-                    <td><?= $r['BrandSince'] ?></td>
-                    <td><?= $r['CountryName'] ?></td>
+                    <td><?= $r['brand_id'] ?></td>
+                    <td><img src="<?= 'uploads/brand/' . $r['brand_logo'] ?>" style="width:80px">
+                    <td><?= $r['brand_number'] ?></td>
+                    <td><?= $r['brand_name'] ?></td>
+                    <td><?= $r['brand_since'] ?></td>
+                    <td><?= $r['country_name'] ?></td>
                 </tr>
             <?php } ?>
 
