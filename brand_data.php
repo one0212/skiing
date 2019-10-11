@@ -2,20 +2,24 @@
 session_start();
 
 
+//資料庫連線
+$country_sql = 'SELECT * FROM `country`';
+$country_stmt = $db->query($country_sql);
+//$countryRows = $country_stmt->fetchAll(PDO::FETCH_ASSOC); 
+//
+
+
 ?>
-
-
 <?php include("include/v2-head.php"); ?>
-<!-- HTML開頭＋link -->
-
-
 <?php include("include/v2-sidebar-ski.php"); ?>
-<!-- 側邊欄 -->
 
 
 
 <!-- 自己的html,css   code放這邊 -->
 <link rel="stylesheet" href="CSS/brand.css">
+
+
+
 
 
 <div class="main">
@@ -24,7 +28,7 @@ session_start();
             <h4 class="title">品牌基本資料</h4>
             <span></span>
         </div>
-        <form class="row form1" method="post" action="brand_data_api.php">
+        <form class="row form1" method="post" action="#">
             <!-- 品牌資料表 -->
             <div class="col-9 info_left">
                 <div class="form-group">
@@ -40,10 +44,9 @@ session_start();
                     <div class="form-group col-md-3 ml-2">
                         <label for="brand_country">成立地點</label>
                         <select class="form-control" id="brand_country" name="brand_country">
-                            <option>法國</option>
-                            <option>德國</option>
-                            <option>日本</option>
-                            <option>台灣</option>
+                            <?php while( $r = $country_stmt->fetch()){ ?>
+                            <option value="<?= $r['country_id']?>" ><?= $r['country_name'] ?></option>
+                            <?php }?>
                         </select>
                     </div>
                 </div>
@@ -52,11 +55,6 @@ session_start();
                     <label for="brand_about">品牌故事</label>
                     <textarea class="form-control" id="brand_about" rows="3" name="brand_about"></textarea>
                 </div>
-                <div class="form-group">
-                    <label for="brand_return">退換貨資訊</label>
-                    <textarea class="form-control" id="brand_return" rows="4" name="brand_return"></textarea>
-                </div>
-
             </div>
             <div class="col-3 info_right">
                 <div class="container user">
@@ -64,7 +62,6 @@ session_start();
                         <img id="avatar" class="upload_img" src="" alt="">
                     </div>
                     <div class="py-4 cc">
-
                         <label class="btn btn-outline-light" >
                             <input type="file" class="form-control-file" style="display:none;" id="brand_logo" name="brand_logo" onchange="showPreview(this)">
                             <span>選擇圖片</span>
@@ -83,20 +80,20 @@ session_start();
 
 
 <script>
-    function showPreview(source) {
-        var file = source.files[0];
+    // function showPreview(source) {
+    //     var file = source.files[0];
 
-        if (window.FileReader) {
-            var fr = new FileReader();
-            console.log(fr);
-            var portrait = document.getElementById('avatar');
-            fr.onloadend = function(e) {
-                portrait.src = e.target.result;
-            };
-            fr.readAsDataURL(file);
-            portrait.style.display = 'block';
-        }
-    }
+    //     if (window.FileReader) {
+    //         var fr = new FileReader();
+    //         console.log(fr);
+    //         var portrait = document.getElementById('avatar');
+    //         fr.onloadend = function(e) {
+    //             portrait.src = e.target.result;
+    //         };
+    //         fr.readAsDataURL(file);
+    //         portrait.style.display = 'block';
+    //     }
+    // }
 </script>
 
 

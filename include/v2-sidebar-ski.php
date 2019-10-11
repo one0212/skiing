@@ -90,7 +90,7 @@ $bid = $_SESSION['bid'];
             </a>
         </li>
         <li>
-            <a href="BRAND_DATA.php"><i class="fas fa-skiing-nordic"></i>品牌管理</a>
+            <a href="brand_list.php"><i class="fas fa-skiing-nordic"></i>品牌管理</a>
         </li>
         <li>
             <a href="#">

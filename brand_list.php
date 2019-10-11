@@ -9,7 +9,7 @@ $page_title = '品牌列表';
 
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 
-$per_page = 5; //每頁總筆數
+$per_page = 3; //每頁總筆數
 $brand_sql = 'SELECT COUNT(*) FROM `brand_data`';
 $brand_stmt = $db->query($brand_sql);
 $totalRows = $brand_stmt->fetch(PDO::FETCH_NUM)[0]; //取得總筆數
@@ -53,12 +53,14 @@ $brand_sql = $db->query($sql);
 <link rel="stylesheet" href="CSS/brand_list.css">
 
 <style>
-    .table tbody tr td {
-        vertical-align: inherit;
 
-    }
+.table tbody tr td {
+    vertical-align: inherit;
+
+}
 
 </style>
+
 
 
 <div class="main">
