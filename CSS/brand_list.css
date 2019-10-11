@@ -3,6 +3,12 @@ tr, td{
 }
 
 
+.table tbody tr td {
+    vertical-align: inherit;
+
+}
+
+
 .angle{
     padding: 0;
 }
