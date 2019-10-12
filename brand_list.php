@@ -5,18 +5,15 @@ $page_title = '品牌列表';
 
 
 
-//page
+//----------------------------頁籤設定
 
-$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
-
-$per_page = 3; //每頁總筆數
-$brand_sql = 'SELECT COUNT(*) FROM `brand_data`';
-$brand_stmt = $db->query($brand_sql);
-$totalRows = $brand_stmt->fetch(PDO::FETCH_NUM)[0]; //取得總筆數
+$page = isset($_GET['page']) ? intval($_GET['page']) : 1;  //用戶操作  >>  ? (如有有資料)  intval(轉換整數))   :(如果沒有) 預設值 1
+$per_page = 3; //每頁顯示幾筆資料
+$brand_sql = 'SELECT COUNT(*) FROM `brand_data`';    //取得資料集
+//$brand_stmt = $db->query($brand_sql);                //接資料
+//$totalRows = $brand_stmt->fetch(PDO::FETCH_NUM)[0];  //FETCH_NUM 索引式陣列  取得總筆數
+$totalRows = $db->query($brand_sql)->fetch(PDO::FETCH_NUM)[0];  //省略 $brand_stmt
 $totalPages = ceil($totalRows / $per_page); //總頁數 =  總筆數 / 每頁顯示幾筆資料
-
-
-
 #page值小於1 轉回頁面第一頁離開
 if ($page < 1) {
     header('Location: brand_list.php');
@@ -28,16 +25,16 @@ if ($page > $totalPages) {
     exit;
 }
 
+//----------------------------頁籤設定結束
 
 
 
-
-//抓取資料  brand_data + country
+//輸出頁面資料      brand_data + country
 $sql = sprintf(
     "SELECT * FROM `brand_data` JOIN `country` ON brand_data.country_id = country.country_id
     ORDER BY `brand_id` ASC LIMIT %s,%s",
-    ($page - 1) * $per_page,
-    $per_page
+    ($page - 1) * $per_page, //LIMIT 第1個值
+    $per_page  //LIMIT 第2個值
 );
 $brand_sql = $db->query($sql);
 
